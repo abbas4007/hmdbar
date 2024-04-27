@@ -5,7 +5,6 @@ from django.db import models
 from django.utils import timezone
 from django.utils.html import format_html
 from ckeditor.fields import RichTextField
-from ckeditor_uploader.fields import RichTextUploadingField
 from account.models import User
 from extensions.utils import jalali_converter
 from article.models import IpAddress
@@ -53,7 +52,7 @@ class Course(models.Model):
 	title = models.CharField(max_length=200, verbose_name="عنوان دوره")
 	slug = models.SlugField(max_length=100, unique=True, verbose_name="آدرس دوره")
 	category = models.ForeignKey(Category, null=True, on_delete=models.SET_NULL, verbose_name="دسته‌بندی", related_name="courses")
-	description = RichTextUploadingField(verbose_name="توضیحات")
+	description = RichTextField(verbose_name="توضیحات")
 	address = models.URLField(verbose_name="لینک یوتیوب")
 	thumbnails = models.ImageField(upload_to="images/course", verbose_name="تصویر ۶۴۰x۳۶۰ مقاله")
 	thumbnail = models.ImageField(upload_to="images/course", verbose_name="تصویر دوره")
@@ -93,7 +92,7 @@ class Video(models.Model):
 	position = models.IntegerField(verbose_name="شماره جلسه", unique=True)
 	title = models.CharField(max_length=200, verbose_name="عنوان جلسه")
 	course = models.ForeignKey(Course, null=True, on_delete=models.SET_NULL, verbose_name="دوره", related_name="videos")
-	description = RichTextUploadingField(verbose_name="توضیحات")
+	description = RichTextField(verbose_name="توضیحات")
 	iframe = models.TextField(verbose_name="آی‌فریم یوتیوب")
 	address = models.URLField(verbose_name="لینک یوتیوب")
 	publish = models.DateTimeField(default=timezone.now, verbose_name="زمان انتشار")

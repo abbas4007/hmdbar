@@ -4,7 +4,7 @@ from django.utils.html import format_html
 from django.urls import reverse
 from django.core.mail import EmailMessage
 from ckeditor.fields import RichTextField
-from ckeditor_uploader.fields import RichTextUploadingField
+from ckeditor.fields import RichTextField
 from account.models import User
 from extensions.utils import jalali_converter
 
@@ -72,7 +72,7 @@ class Article(models.Model):
 	title = models.CharField(max_length=200, verbose_name="عنوان مقاله")
 	slug = models.SlugField(max_length=100, unique=True, verbose_name="آدرس مقاله")
 	category = models.ForeignKey(Category, null=True, on_delete=models.SET_NULL, verbose_name="دسته‌بندی", related_name="articles")
-	description = RichTextUploadingField(verbose_name="محتوا")
+	description = RichTextField(verbose_name="محتوا")
 	thumbnails = models.ImageField(upload_to="images/article", verbose_name="تصویر ۶۴۰x۳۶۰ مقاله")
 	thumbnail = models.ImageField(upload_to="images/article", verbose_name="تصویر مقاله")
 	publish = models.DateTimeField(default=timezone.now, verbose_name="زمان انتشار")
