@@ -6,4 +6,4 @@ from .models import Course
 class HomeView(View):
 	def get(self, request) :
 		courses = Course.objects.all()
-		return render(request, 'home/home.html',{'courses':courses})
+		return render(request, 'home/index.html',{'courses':courses})
