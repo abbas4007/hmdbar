@@ -13,7 +13,10 @@ body {
   font-family: "Open Sans", sans-serif;
   color: #444444;
 }
-
+description{
+  font-family: Sahel;
+  color: #f2f2f2;
+}
 a {
   color: #517fff;
   text-decoration: none;
@@ -144,7 +147,7 @@ h6 {
 }
 
 #header .logo a span {
-  color: #5162ff;
+  color: rgba(۸۱, ۹۸, ۲۵۵, 0.71);
 }
 
 #header .logo img {
@@ -249,7 +252,7 @@ h6 {
   padding: 10px 20px;
   font-size: 14px;
   text-transform: none;
-  color: #151515;
+  color: #3d397f;
   font-weight: 400;
 }
 
@@ -456,7 +459,7 @@ h6 {
 #hero .icon-box i {
   font-size: 32px;
   line-height: 1;
-  color: #59a3f8b9;
+  color: rgba(۲۳۰, ۲۳۳, ۲۳۵, 0.73);
 }
 
 #hero .icon-box h3 {
@@ -474,11 +477,11 @@ h6 {
 }
 
 #hero .icon-box h3 a:hover {
-  color: #5154ff65;
+  color: rgba(۲۰۱, ۲۰۱, ۲۱۵, 0.4);
 }
 
 #hero .icon-box:hover {
-  border-color: #3e60f7c7;
+  border-color: #b3b4b6;
 }
 
 @media (min-width: 1024px) {
@@ -633,7 +636,7 @@ section {
 
 .features .icon-box p {
   font-size: 15px;
-  color: #848484;
+  color: #aeb0b2;
   margin-left: 60px;
 }
 

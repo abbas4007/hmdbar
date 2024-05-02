@@ -16,9 +16,12 @@ Including another URLconf
 """
 
 from django.urls import path, include
-from .views import HomeView
+from .views import HomeView,VakilDetailView,PostDetailView,VokalaView
 app_name='home'
 urlpatterns = [
 
     path('', HomeView.as_view(),name='home'),
+    path('detail/', VakilDetailView.as_view(),name='vakil_detail'),
+    path('post_detail/', PostDetailView.as_view(),name='post_detail'),
+    path('vokala/', VokalaView.as_view(),name='vokala'),
 ]

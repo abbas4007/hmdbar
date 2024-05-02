@@ -105,7 +105,7 @@ CKEDITOR_UPLOAD_PATH = "uploads/"
 WSGI_APPLICATION = 'hamedanbar.wsgi.application'
 
 
-# Database
+# Database0
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
