@@ -31,7 +31,7 @@
           <div class="col-md-6 col-lg-4 d-flex align-items-center mb-5 mb-lg-0">
             <div class="icon-box">
               <div class="icon"><i class="bi bi-search"></i></div>
-              <h4 class="title"><a href="">جستجوی وکیل  </a></h4>
+              <h4 class="title"><a href="{% url 'home:vakil_detail' %}">جستجوی وکیل  </a></h4>
               <p class="description">جستجوی وکلا بر اساس نام، نام خانوادگی،...</p>
             </div>
           </div>
@@ -96,10 +96,10 @@
         </div>
 
         <div class="row portfolio-container">
-          {% for course in courses %}
+          {% for product in products %}
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <img src="{{ course.image.url }}" class="img-fluid" alt="">
+            <img src="{{ product.image.url }}" class="img-fluid" alt="">
             <div class="portfolio-info">
               <h4>App 1</h4>
               <p>App</p>
@@ -421,13 +421,13 @@
 <!-- End #main -->
 
   <!-- ======= Footer ======= -->
-  <footer id="footer">
+  <footer id="footer" style="direction: rtl;">
 
     <div class="footer-top">
-      <div class="container">
-        <div class="row">
+      <div class="container align-items-center mr-5">
+        <div class="row align-items-center mr-5">
 
-          <div class="col-lg-3 col-md-6 footer-contact">
+          <div class="col-lg-3 col-md-6 footer-contact align-items-center">
             <h3>تماس با کانون</h3>
             <p>
               همدان، خیابان بوعلی، انتهای کوچه دادگستری، <br>
@@ -455,9 +455,7 @@
           <div class="col-lg-4 col-md-6 footer-newsletter">
             <h4>کانون وکلای دادگستری</h4>
             <p> قدیمی‌ترین سازمان مردم نهاد ایرانی است که به موجب لایحه استقلال کانون وکلا در سال ۱۳۳۱ به عنوان نهادی با شخصیت حقوقی و مستقل به وجود آمد، هرچند پیش از آن هم موجودیت داشت. کانون وکلای دادگستری ایران در سال ۱۳۲۹ نیز به عضویت کانون وکلای بین‌المللی (IBA) درآمده است. هیئت مدیره، رئیس، دادگاه انتظامی وکلا و دادسرای انتظامی وکلا از نهادهای هر کانون هستند.</p>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
-            </form>
+            
           </div>
 
         </div>

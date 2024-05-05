@@ -1,122 +1,95 @@
 from django.db import models
-
-# Create your models here.
-from django.db import models
-from django.utils import timezone
-from django.utils.html import format_html
-from ckeditor.fields import RichTextField
+from django.urls import reverse
 from account.models import User
+from django.utils.html import format_html
+from django.utils import timezone
 from extensions.utils import jalali_converter
-from article.models import IpAddress
+from django.contrib.contenttypes.fields import GenericRelation
+# from comment.models import Comment
 
-# Create your models here.
+# my managers
+class ArticleManager(models.Manager):
+	def published(self):
+		return self.filter(status='p')
+
+
 class CategoryManager(models.Manager):
 	def active(self):
 		return self.filter(status=True)
 
-class CourseManager(models.Manager):
-	def active(self):
-		return self.filter(status=True)
-
-class VideoManager(models.Manager):
-	def active(self):
-		return self.filter(status=True)
-
 
 # Create your models here.
+class IPAddress(models.Model):
+	ip_address = models.GenericIPAddressField(verbose_name="آدرس آی‌پی")
+
+
 class Category(models.Model):
+	parent = models.ForeignKey('self', default=None, null=True, blank=True, on_delete=models.SET_NULL, related_name='children', verbose_name="زیردسته")
 	title = models.CharField(max_length=200, verbose_name="عنوان دسته‌بندی")
+	slug = models.SlugField(max_length=100, unique=True, verbose_name="آدرس دسته‌بندی",blank=True,null=True)
 	status = models.BooleanField(default=True, verbose_name="آیا نمایش داده شود؟")
 	position = models.IntegerField(verbose_name="پوزیشن")
 
 	class Meta:
 		verbose_name = "دسته‌بندی"
 		verbose_name_plural = "دسته‌بندی ها"
-		ordering = ['position']
+		ordering = ['parent__id', 'position']
 
 	def __str__(self):
 		return self.title
-
-	def save(self, *args, **kwargs):
-		if not self.status:
-			for course in self.courses.active():
-				course.status = False
-				course.save()
-		super(Category, self).save(*args, **kwargs)
 
 	objects = CategoryManager()
 
 
-class Course(models.Model):
-	author = models.ForeignKey(User, null=True, on_delete=models.SET_NULL, related_name='courses', verbose_name="مدرس")
-	title = models.CharField(max_length=200, verbose_name="عنوان دوره")
-	slug = models.SlugField(max_length=100, unique=True, verbose_name="آدرس دوره")
-	category = models.ForeignKey(Category, null=True, on_delete=models.SET_NULL, verbose_name="دسته‌بندی", related_name="courses")
-	description = RichTextField(verbose_name="توضیحات")
-	address = models.URLField(verbose_name="لینک یوتیوب")
-	thumbnails = models.ImageField(upload_to="images/course", verbose_name="تصویر ۶۴۰x۳۶۰ مقاله")
-	thumbnail = models.ImageField(upload_to="images/course", verbose_name="تصویر دوره")
+class Article(models.Model):
+	STATUS_CHOICES = (
+		('d', 'پیش‌نویس'),		 # draft
+		('p', "منتشر شده"),		 # publish
+		('i', "در حال بررسی"),	 # investigation
+		('b', "برگشت داده شده"), # back
+	)
+	author = models.ForeignKey(User, null=True, on_delete=models.SET_NULL, related_name='articless', verbose_name="نویسنده")
+	title = models.CharField(max_length=200, verbose_name="عنوان مقاله")
+	slug = models.SlugField(max_length=100, unique=True, verbose_name="آدرس مقاله")
+	category = models.ManyToManyField(Category, verbose_name="دسته‌بندی", related_name="articles")
+	description = models.TextField(verbose_name="محتوا")
+	thumbnail = models.ImageField(upload_to="images", verbose_name="تصویر مقاله")
 	publish = models.DateTimeField(default=timezone.now, verbose_name="زمان انتشار")
 	created = models.DateTimeField(auto_now_add=True)
 	updated = models.DateTimeField(auto_now=True)
-	position = models.IntegerField(verbose_name="پوزیشن")
-	status = models.BooleanField(default=True, verbose_name="آیا نمایش داده شود؟")
+	is_special = models.BooleanField(default=False, verbose_name="مقاله ویژه")
+	status = models.CharField(max_length=1, choices=STATUS_CHOICES, verbose_name="وضعیت")
+	# comments = GenericRelation(Comment)
+	video = models.FileField(verbose_name = "ویدئوها",blank = True,null=True)
+	hits = models.ManyToManyField(IPAddress, through="ArticleHit", blank=True, related_name="hits", verbose_name="بازدیدها")
 
 	class Meta:
-		verbose_name = "دوره"
-		verbose_name_plural = "دوره ها"
-		ordering = ['position']
-
-	objects = CourseManager()
+		verbose_name = "مقاله"
+		verbose_name_plural = "مقالات"
+		ordering = ['-publish']
 
 	def __str__(self):
 		return self.title
 
-	def save(self, *args, **kwargs):
-		if not self.status:
-			for video in self.videos.active():
-				video.status = False
-				video.save()
-		super(Course, self).save(*args, **kwargs)
+	def get_absolute_url(self):
+		return reverse("account:home")
 
 	def jpublish(self):
 		return jalali_converter(self.publish)
 	jpublish.short_description = "زمان انتشار"
 
 	def thumbnail_tag(self):
-		return format_html("<img width=100 height=75 style='border-radius: 5px;' src='{}'>".format(self.thumbnails.url))
-	thumbnail_tag.short_description = "عکس"
+		return format_html("<img width=100 height=75 style='border-radius: 5px;' src='{}'>".format(self.thumbnail.url))
+	thumbnail_tag.short_description = "عکس"	
+
+	def category_to_str(self):
+		return "، ".join([category.title for category in self.category.active()])
+	category_to_str.short_description = "دسته‌بندی"
+
+	objects = ArticleManager()
 
 
-class Video(models.Model):
-	position = models.IntegerField(verbose_name="شماره جلسه", unique=True)
-	title = models.CharField(max_length=200, verbose_name="عنوان جلسه")
-	course = models.ForeignKey(Course, null=True, on_delete=models.SET_NULL, verbose_name="دوره", related_name="videos")
-	description = RichTextField(verbose_name="توضیحات")
-	iframe = models.TextField(verbose_name="آی‌فریم یوتیوب")
-	address = models.URLField(verbose_name="لینک یوتیوب")
-	publish = models.DateTimeField(default=timezone.now, verbose_name="زمان انتشار")
-	created = models.DateTimeField(auto_now_add=True)
-	updated = models.DateTimeField(auto_now=True)
-	status = models.BooleanField(default=True, verbose_name="آیا نمایش داده شود؟")
-	# hits = models.ManyToManyField(IpAddress, through="VideoHit", blank=True, related_name='video_hits', verbose_name='بازدیدها')
-
-	class Meta:
-		verbose_name = "ویدیو"
-		verbose_name_plural = "ویدیوها"
-		ordering = ['position']
-
-	objects = VideoManager()
-
-	def __str__(self):
-		return self.title
-
-	def jpublish(self):
-		return jalali_converter(self.publish)
-	jpublish.short_description = "زمان انتشار"
-
-
-class VideoHit(models.Model):
-	video = models.ForeignKey(Video, on_delete=models.CASCADE)
-	# ip_address = models.ForeignKey(IpAddress, on_delete=models.CASCADE)
+class ArticleHit(models.Model):
+	article = models.ForeignKey(Article, on_delete=models.CASCADE)
+	ip_address = models.ForeignKey(IPAddress, on_delete=models.CASCADE)
 	created = models.DateTimeField(auto_now_add=True)
