@@ -1,6 +1,6 @@
 {% load static %}
 
-
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -120,6 +120,35 @@
 
   <main id="main">
 
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+
+        <!-- <div class="row">
+          <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+            <img src="{% static 'asset/img/about.jpg' %}" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right" data-aos-delay="100">
+            <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
+            <p class="fst-italic">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+              magna aliqua.
+            </p>
+            <ul>
+              <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+              <li><i class="ri-check-double-line"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+              <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
+            </ul>
+            <p>
+              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>End About Section -->
+
     <!-- ======= Clients Section ======= -->
     <section id="clients" class="clients">
       <div class="container" data-aos="zoom-in">
@@ -130,14 +159,10 @@
             <div class="swiper-slide"><img src="{% static 'asset/img/clients/9nj03.jpg' %}" class="img-fluid" alt=""></div>
             <div class="swiper-slide"><img src="{% static 'asset/img/clients/ugqpd.jpg' %}" class="img-fluid" alt=""></div>
             <div class="swiper-slide"><img src="{% static 'asset/img/clients/bjolg.jpg' %}" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="{% static 'asset/img/clients/ayljq.jpg' %}" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="{% static 'asset/img/clients/amwu1.jpg' %}" class="img-fluid" alt=""></div>
-
-            <div class="swiper-pagination"></div>
-            <div class="swiper-pagination"></div>
+            <div class="swiper-slide"><img src="{% static 'asset/img/clients/ayljq.jpg' %}" class="img-fluid" alt=""></div>          <div class="swiper-pagination"></div>
+            <div class="swiper-slide"><img src="{% static 'asset/img/clients/amwu1.jpg' %}" class="img-fluid" alt=""></div>          <div class="swiper-pagination"></div>
         </div>
 
-      </div>
       </div>
     </section>
     <section id="services" class="services">
@@ -152,10 +177,9 @@
           {% for a in article %}
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
             <div class="icon-box">
-                         <div class="card"><img class="card-img-top cart-img" src="{{ a.image.url }}" style="width: 20px;width: 20px;" > </div>
-
+              <div class="icon"><i class="bx bxl-dribbble"></i></div>
               <h4><a href="{% url 'home:detail' a.slug %}" >{{a.title}}</a></h4>
-              <p>{{a.description}}</p>
+             
             </div>
           </div>
           {% endfor %}
@@ -224,6 +248,57 @@
 
        
 
+    <!-- ======= Counts Section ======= -->
+    <!-- <section id="counts" class="counts">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row no-gutters">
+          <div class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start" data-aos="fade-right" data-aos-delay="100"></div>
+          <div class="col-xl-7 ps-4 ps-lg-5 pe-4 pe-lg-1 d-flex align-items-stretch" data-aos="fade-left" data-aos-delay="100">
+            <div class="content d-flex flex-column justify-content-center">
+              <h3>Voluptatem dignissimos provident quasi</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
+              </p>
+              <div class="row">
+                <div class="col-md-6 d-md-flex align-items-md-stretch">
+                  <div class="count-box">
+                    <i class="bi bi-emoji-smile"></i>
+                    <span data-purecounter-start="0" data-purecounter-end="65" data-purecounter-duration="2" class="purecounter"></span>
+                    <p><strong>Happy Clients</strong> consequuntur voluptas nostrum aliquid ipsam architecto ut.</p>
+                  </div>
+                </div>
+
+                <div class="col-md-6 d-md-flex align-items-md-stretch">
+                  <div class="count-box">
+                    <i class="bi bi-journal-richtext"></i>
+                    <span data-purecounter-start="0" data-purecounter-end="85" data-purecounter-duration="2" class="purecounter"></span>
+                    <p><strong>Projects</strong> adipisci atque cum quia aspernatur totam laudantium et quia dere tan</p>
+                  </div>
+                </div>
+
+                <div class="col-md-6 d-md-flex align-items-md-stretch">
+                  <div class="count-box">
+                    <i class="bi bi-clock"></i>
+                    <span data-purecounter-start="0" data-purecounter-end="35" data-purecounter-duration="4" class="purecounter"></span>
+                    <p><strong>Years of experience</strong> aut commodi quaerat modi aliquam nam ducimus aut voluptate non vel</p>
+                  </div>
+                </div>
+
+                <div class="col-md-6 d-md-flex align-items-md-stretch">
+                  <div class="count-box">
+                    <i class="bi bi-award"></i>
+                    <span data-purecounter-start="0" data-purecounter-end="20" data-purecounter-duration="4" class="purecounter"></span>
+                    <p><strong>Awards</strong> rerum asperiores dolor alias quo reprehenderit eum et nemo pad der</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
 
     <!-- ======= Testimonials Section ======= -->
     <section id="testimonials" class="testimonials">
@@ -317,7 +392,7 @@
           <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
             <div class="member">
               <div class="member-img">
-                <img src="{% static 'asset/img/team/gh.jpg' %}" class="img-fluid" alt="">
+                <img src="{% static 'assets/img/team/gh.jpg' %}" class="img-fluid" alt="">
                 <!-- <div class="social">
                   <a href=""><i class="bi bi-twitter"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
@@ -335,7 +410,7 @@
           <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
             <div class="member">
               <div class="member-img">
-                <img src="{% static 'asset/img/team/mad.jpg' %}" class="img-fluid" alt="">
+                <img src="{% static 'assets/img/team/mad.jpg' %}" class="img-fluid" alt="">
                 <div class="social">
                   <a href=""><i class="bi bi-twitter"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
@@ -353,7 +428,7 @@
           <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
             <div class="member">
               <div class="member-img">
-                <img src="{% static 'asset/img/team/fr.jpg' %}" class="img-fluid" alt="">
+                <img src="{% static 'assets/img/team/fr.jpg' %}" class="img-fluid" alt="">
                 <div class="social">
                   <a href=""><i class="bi bi-twitter"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
@@ -371,7 +446,7 @@
           <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
             <div class="member">
               <div class="member-img">
-                <img src="{% static 'asset/img/team/mos.jpg' %}" class="img-fluid" alt="">
+                <img src="{% static 'assets/img/team/mos.jpg' %}" class="img-fluid" alt="">
                 <div class="social">
                   <a href=""><i class="bi bi-twitter"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
@@ -389,7 +464,7 @@
         </div>
 
       </div>
-    </section>
+    </section><
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
@@ -459,12 +534,9 @@
         </div>
 
       </div>
+    </section><!-- End Contact Section -->
 
-    </section>
-      </div>
-    </section>
-      </div>
-       </main>
+  </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
   <footer id="footer">

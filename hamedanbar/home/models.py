@@ -60,9 +60,8 @@ class Article(models.Model):
 	is_special = models.BooleanField(default=False, verbose_name="مقاله ویژه")
 	status = models.CharField(max_length=1, choices=STATUS_CHOICES, verbose_name="وضعیت")
 	# comments = GenericRelation(Comment)
-	video = models.FileField(verbose_name = "ویدئوها",blank = True,null=True)
 	hits = models.ManyToManyField(IPAddress, through="ArticleHit", blank=True, related_name="hits", verbose_name="بازدیدها")
-
+	# video = models.FileField(verbose_name='وید‍‍‍‍‍یو')
 	class Meta:
 		verbose_name = "مقاله"
 		verbose_name_plural = "مقالات"

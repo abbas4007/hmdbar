@@ -17,12 +17,12 @@ class ArticleList(View):
 
 
 class ArticleDetail(View):
-	def get(self,request):
-		slug = self.kwargs.get('slug')
+	def get(self,request,slug):
+		
 		article = get_object_or_404(Article.objects.published(), slug=slug)
-		ip_address = self.request.user.ip_address
-		if ip_address not in article.hits.all():
-			article.hits.add(ip_address)
+		# ip_address = self.request.user.ip_address
+		# if ip_address not in article.hits.all():
+		# 	article.hits.add(ip_address)
 
 		return render(request,'home/post_detail.html',{'article':article})
 
