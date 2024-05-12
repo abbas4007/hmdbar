@@ -1,8 +1,35 @@
 from django.contrib import admin
-from .models import Article, Category, IPAddress
+from .models import Article, Category, IPAddress,Vakil
+from import_export.admin import ImportExportModelAdmin
+
+
 
 # Admin header change
 admin.site.site_header = "وبلاگ جنگویی من"
+
+from django.shortcuts import render
+from django import forms
+
+# create a form field which can input a file
+class CsvImportForm(forms.Form):
+    csv_file = forms.FileField()
+
+@admin.register(Vakil)
+class VakilAdmin(ImportExportModelAdmin,admin.ModelAdmin):
+    list_display = ("name","code","gender")
+
+    def import_action(self,request):
+        form = CsvImportForm()
+        context = {"form": form, "form_title": "Upload StarWars characters csv file.",
+                    "description": "The file should have following headers: "
+                                    "[NAME,HEIGHT,MASS,HAIR COLOR,EYE COLOR,SKIN COLOR,BIRTH YEAR,GENDER]."
+                                    " The Following rows should contain information for the same.",
+                                    "endpoint": "/admin/starwars/characters/import/"}
+        return render(
+            request, "admin/import_starwars_characters.html", context
+        )
+
+
 
 # Register your models here.
 def make_published(modeladmin, request, queryset):

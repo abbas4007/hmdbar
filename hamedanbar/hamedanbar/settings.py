@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'account',
     'article',
     'ckeditor',
+    'import_export',
 ]
 AUTH_USER_MODEL = 'account.User'
 

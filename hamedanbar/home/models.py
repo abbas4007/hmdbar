@@ -61,7 +61,7 @@ class Article(models.Model):
 	status = models.CharField(max_length=1, choices=STATUS_CHOICES, verbose_name="وضعیت")
 	# comments = GenericRelation(Comment)
 	hits = models.ManyToManyField(IPAddress, through="ArticleHit", blank=True, related_name="hits", verbose_name="بازدیدها")
-	# video = models.FileField(verbose_name='وید‍‍‍‍‍یو')
+	video = models.FileField(blank = True,null = True,verbose_name= 'وید‍‍یو')
 	class Meta:
 		verbose_name = "مقاله"
 		verbose_name_plural = "مقالات"
@@ -92,3 +92,31 @@ class ArticleHit(models.Model):
 	article = models.ForeignKey(Article, on_delete=models.CASCADE)
 	ip_address = models.ForeignKey(IPAddress, on_delete=models.CASCADE)
 	created = models.DateTimeField(auto_now_add=True)
+
+
+class Vakil(models.Model):
+	GENDER_CHOICES = (
+		('M', 'مرد'),
+		('F', "زن"),
+
+	)
+	code = models.IntegerField( verbose_name="شماره پروانه")
+	gender = models.CharField(max_length=1, choices=GENDER_CHOICES, verbose_name="جنسیت")
+	date = models.DateTimeField( verbose_name="تاریخ انقضا")
+	name = models.CharField(max_length=100, verbose_name="نام")
+	lastname = models.CharField( max_length = 150,verbose_name="نام خانوادگی")
+	address = models.TextField(verbose_name="آدرس")
+	thumbnail = models.ImageField(upload_to="images", verbose_name="تصویر وکیل")
+
+	def __str__(self):
+		return self.code
+
+
+
+	def jpublish(self):
+		return jalali_converter(self.date)
+	jpublish.short_description = "تاریخ انقضا"
+
+	def thumbnail_tag(self):
+		return format_html("<img width=100 height=75 style='border-radius: 5px;' src='{}'>".format(self.thumbnail.url))
+	thumbnail_tag.short_description = "عکس"
