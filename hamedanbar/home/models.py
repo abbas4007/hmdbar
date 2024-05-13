@@ -106,10 +106,10 @@ class Vakil(models.Model):
 	name = models.CharField(max_length=100, verbose_name="نام")
 	lastname = models.CharField( max_length = 150,verbose_name="نام خانوادگی")
 	address = models.TextField(verbose_name="آدرس")
-	thumbnail = models.ImageField(upload_to="images", verbose_name="تصویر وکیل")
+	thumbnail = models.ImageField(upload_to="images", verbose_name= "تصویر وکیل",blank = True,null = True)
 
 	def __str__(self):
-		return self.code
+		return self.name
 
 
 

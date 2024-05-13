@@ -2,7 +2,11 @@ from django.contrib import admin
 from .models import Article, Category, IPAddress,Vakil
 from import_export.admin import ImportExportModelAdmin
 
-
+from django.shortcuts import render
+from .models import *
+import pandas as pd
+from django.http import JsonResponse
+from django.conf import settings
 
 # Admin header change
 admin.site.site_header = "وبلاگ جنگویی من"
@@ -16,18 +20,42 @@ class CsvImportForm(forms.Form):
 
 @admin.register(Vakil)
 class VakilAdmin(ImportExportModelAdmin,admin.ModelAdmin):
-    list_display = ("name","code","gender")
+    list_display = ('name', 'lastname', 'address', 'thumbnail', 'jpublish', 'gender', 'code')
+    list_filter = ('code', 'name', 'lastname')
+    search_fields = ('name', 'code')
+    ordering = ['code', '-date']
 
-    def import_action(self,request):
-        form = CsvImportForm()
-        context = {"form": form, "form_title": "Upload StarWars characters csv file.",
-                    "description": "The file should have following headers: "
-                                    "[NAME,HEIGHT,MASS,HAIR COLOR,EYE COLOR,SKIN COLOR,BIRTH YEAR,GENDER]."
-                                    " The Following rows should contain information for the same.",
-                                    "endpoint": "/admin/starwars/characters/import/"}
-        return render(
-            request, "admin/import_starwars_characters.html", context
-        )
+    def export_data_to_excel(request) :
+        # Retrieve all Employee objects from the database
+        objs = Vakil.objects.all()
+        data = []
+        for obj in objs :
+            data.append({
+                "name" : obj.name,
+                "lastname" : obj.lastname,
+                "address" : obj.address,
+                "date":obj.date,
+                "gender":obj.gender,
+                "code":obj.code
+            })
+        pd.DataFrame(data).to_excel('output.xlsx')
+        return JsonResponse({
+            'status' : 200
+        })
+
+    def import_data_to_db(request) :
+        data_to_display = None
+        if request.method == 'POST' :
+            file = request.FILES['files']
+            obj = CsvImportForm.objects.create(
+                file = file
+            )
+
+            path = file.file
+            df = pd.read_excel(path)
+            data_to_display = df.to_html()
+
+        return render(request, 'excel.html', {'data_to_display' : data_to_display})
 
 
 
