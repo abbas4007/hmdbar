@@ -14,13 +14,12 @@ admin.site.site_header = "وبلاگ جنگویی من"
 from django.shortcuts import render
 from django import forms
 
-# create a form field which can input a file
 class CsvImportForm(forms.Form):
     csv_file = forms.FileField()
 
 @admin.register(Vakil)
 class VakilAdmin(ImportExportModelAdmin,admin.ModelAdmin):
-    list_display = ('name', 'lastname', 'address', 'thumbnail', 'jpublish', 'gender', 'code')
+    list_display = ('name', 'lastname', 'address', 'thumbnail_tag', 'jpublish', 'gender', 'code')
     list_filter = ('code', 'name', 'lastname')
     search_fields = ('name', 'code')
     ordering = ['code', '-date']
@@ -31,12 +30,13 @@ class VakilAdmin(ImportExportModelAdmin,admin.ModelAdmin):
         data = []
         for obj in objs :
             data.append({
+                "code" : obj.code,
                 "name" : obj.name,
                 "lastname" : obj.lastname,
                 "address" : obj.address,
-                "date":obj.date,
+                # "date":obj.date,
                 "gender":obj.gender,
-                "code":obj.code
+
             })
         pd.DataFrame(data).to_excel('output.xlsx')
         return JsonResponse({
@@ -54,6 +54,7 @@ class VakilAdmin(ImportExportModelAdmin,admin.ModelAdmin):
             path = file.file
             df = pd.read_excel(path)
             data_to_display = df.to_html()
+            print("success")
 
         return render(request, 'excel.html', {'data_to_display' : data_to_display})
 
@@ -100,3 +101,4 @@ class ArticleAdmin(admin.ModelAdmin):
 
 admin.site.register(Article, ArticleAdmin)
 admin.site.register(IPAddress)
+

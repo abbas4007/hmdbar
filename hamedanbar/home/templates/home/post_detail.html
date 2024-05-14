@@ -1,5 +1,4 @@
 {% load static %}
-<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
@@ -36,7 +35,8 @@
             </div>
         </nav>
         <!-- Page Header-->
-        <header class="masthead" style="background-image: url('{{article.thumbnail.url}}')">            <div class="container position-relative px-4 px-lg-5">
+        <header class="masthead" style="background-image: url('{{article.thumbnail.url}}')">
+            <div class="container position-relative px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="post-heading">
@@ -57,10 +57,15 @@
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
-                        <p>{{ a.description }}</p>
-                        
-                            
-                        </p>
+                        <p>{{ article.description }}</p>
+
+                            {%  if article.video %}
+
+                        <video width="500" height="450" controls>
+                          <source src="{{ article.video.url }}" type="video/mp4">
+                        </video>
+                        {%  endif %}
+
                     </div>
                 </div>
             </div>
