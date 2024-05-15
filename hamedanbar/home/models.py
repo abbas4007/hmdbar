@@ -100,16 +100,16 @@ class Vakil(models.Model):
 		('F', "زن"),
 
 	)
-	code = models.IntegerField( verbose_name="شماره پروانه")
-	gender = models.CharField(max_length=1, choices=GENDER_CHOICES, verbose_name="جنسیت")
-	date = models.DateTimeField( verbose_name="تاریخ انقضا")
-	name = models.CharField(max_length=100, verbose_name="نام")
-	lastname = models.CharField( max_length = 150,verbose_name="نام خانوادگی")
-	address = models.TextField(verbose_name="آدرس")
+	name = models.CharField(max_length=100, verbose_name="نام" ,blank = True,null = True)
+	code = models.IntegerField( blank = True,null = True,verbose_name="شماره پروانه")
+	gender = models.CharField(blank = True,null = True,max_length=1, choices=GENDER_CHOICES, verbose_name="جنسیت")
+	date = models.DateTimeField(blank = True,null = True, verbose_name="تاریخ انقضا")
+	lastname = models.CharField( blank = True,null = True,max_length = 150,verbose_name="نام خانوادگی")
+	address = models.TextField(blank = True,null = True,verbose_name="آدرس")
 	thumbnail = models.ImageField(upload_to="images", verbose_name= "تصویر وکیل",blank = True,null = True)
 
 	def __str__(self):
-		return self.name
+		return str(self.name)
 
 
 
