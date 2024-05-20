@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Gp Bootstrap Template - Index</title>
+  <title>کانون وکلای دادگستری استان همدان</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -26,9 +26,10 @@
   <link href="{% static 'asset/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
   <link href="{% static 'asset/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
   <link href="{% static 'asset/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
+  <link href="{% static 'asset/css/rtl.css' %}" rel="stylesheet">
   <link href="{% static 'asset/css/style.css' %}" rel="stylesheet">
+  <!-- Template Main CSS File -->
+  
 
   <!-- =======================================================
   * Template Name: Gp
@@ -43,37 +44,40 @@
 
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top ">
-    <div class="container d-flex align-items-center justify-content-lg-between">
+    <div class="container d-flex align-items-center justify-content-lg-between mr-5">
 
-      <h1 class="logo me-auto me-lg-0"><a href="index.html">Gp<span>.</span></a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="asset/img/logo.png" alt="" class="img-fluid"></a>-->
+       <img src="{% static 'img/logo.png' %}" class="img-fluid" alt="">
+      
+      <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="img/logo.png" alt="" class="img-fluid"></a> -->
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li><a class="nav-link scrollto" href="#services">Services</a></li>
-          <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li>
-          <li><a class="nav-link scrollto" href="#team">Team</a></li>
-          <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+          <li><a class="nav-link scrollto active" href="#hero">صفحه اصلی</a></li>
+          <li><a class="nav-link scrollto" href="#services">اخبار</a></li>
+          <li><a class="nav-link scrollto " href="#portfolio">جستجوی وکیل</a></li>
+          <li><a class="nav-link scrollto" href="#team">هیات مدیره</a></li>
+          <li class="dropdown"><a href="#"><span>کمیسیون ها</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+              <li><a href="#">کارآموزی</a></li>
+              <li><a href="#">فرهنگی و رفاهی</a></li>
+              <li><a href="#">حقوق بشر</a></li>
+              <li class="dropdown"><a href="#"><span>دادسرای انتظامی</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
+                  <li><a href="#">کارآموزی</a></li>
+                  <li><a href="#">فرهنگی و رفاهی</a></li>
+                  <li><a href="#">حقوق بشر</a></li>
+                  <li><a href="#">اداره معاضدت و تسخیری</a></li>
+                  <li><a href="#">نقل و انتقالات</a></li>
+              <li><a href="#">اداره معاضدت و تسخیری</a></li>
+              <li><a href="#">نقل و انتقالات</a></li>
+              <li><a href="#"> ورزشی</a></li>
+              <li><a href="#">آموزش و پژوهش <a></li>
+              <li><a href="#">محیط زیست</a></li>
+              
+             
             </ul>
           </li>
-          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          <!-- <li><a class="nav-link scrollto" href="#contact">Contact</a></li> -->
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -126,8 +130,7 @@
 
         <!-- <div class="row">
           <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
-            <img src="{% static 'asset/img/about.jpg' %}" class="img-fluid" alt="">.
-
+            <img src="{% static 'asset/img/about.jpg' %}" class="img-fluid" alt="">
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right" data-aos-delay="100">
             <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
@@ -165,35 +168,26 @@
         </div>
 
       </div>
-      </div>
     </section>
     <section id="services" class="services">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Services</h2>
-          <p>Check our Services</p>
+          <h2>اخبار</h2>
         </div>
 
-        <div class="row">
-          {% for a in article %}
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bxl-dribbble"></i></div>
-              <h4><a href="{% url 'home:detail' a.slug %}" >{{a.title}}</a></h4>
-             
-            </div>
-          </div>
-          {% endfor %}
+     <div class="row">
+  {% for a in article %}
+  <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+   <div class="swiper-slide">
+      <div class="testimonial-item">
 
-        
+      <h4><a href="{% url 'home:detail' a.slug %}" >{{a.title}}</a></h4>
+        <img src="{{a.thumbnail.url}}" class="img-fluid" alt="">
 
-          
-         
-
-         
-         
-
+    </div>
+  </div>
+  {% endfor %}
         </div>
 
       </div>
@@ -208,19 +202,19 @@
           <div class="col-lg-6" data-aos="fade-left" data-aos-delay="100">
             <div class="icon-box mt-5 mt-lg-0" data-aos="zoom-in" data-aos-delay="150">
               <i class="bx bx-receipt"></i>
-              <h4>مشاهده فهرست بروز وکلای هر استان</h4>
+              <h5>مشاهده فهرست بروز وکلای هر استان</h5>
             </div>
             <div class="icon-box mt-5" data-aos="zoom-in" data-aos-delay="150">
               <i class="bx bx-cube-alt"></i>
-              <h4>مشاهده فهرست بروز کارآموزان هر استان</h4>
+              <h5>مشاهده فهرست بروز کارآموزان هر استان</h5>
             </div>
             <div class="icon-box mt-5" data-aos="zoom-in" data-aos-delay="150">
               <i class="bx bx-images"></i>
-              <h4>مشاهده اعضای هیات مدیره</h4>
+              <h5>مشاهده اعضای هیات مدیره</h5>
             </div>
             <div class="icon-box mt-5" data-aos="zoom-in" data-aos-delay="150">
               <i class="bx bx-shield"></i>
-              <h4>دسترسی به کمیسیون ها و اعضای آنها</h4>
+              <h5>دسترسی به کمیسیون ها و اعضای آنها</h5>
             </div>
           </div>
         </div>
@@ -466,10 +460,10 @@
         </div>
 
       </div>
-    </section><
+    </section>
 
     <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
+    <!-- <section id="contact" class="contact">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
@@ -536,7 +530,8 @@
         </div>
 
       </div>
-    </section><!-- End Contact Section -->
+    </section>
+    End Contact Section -->
 
   </main><!-- End #main -->
 
