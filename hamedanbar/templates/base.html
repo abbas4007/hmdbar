@@ -1,136 +1,41 @@
 {% load static %}
 
-<!DOCTYPE html>
-<!-- {#{% block extra_headerss %}#}
-{#<html lang="en" dir="rtl">#}
-{##}
-{#{% endblock %}#} -->
-<head>
-    <title>{% block title %}{% endblock %}</title>
- <link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}">  <!-- Favicons -->
-    <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
-  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+{% block extra_headerss %}
+<html lang="en" dir="rtl">
+ <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>کانون وکلای دادگستری استان همدان</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'asset/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'aasset/img/apple-touch-icon.png' %}"rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %} " rel="stylesheet">
-  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %} " rel="stylesheet">
-  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %} " rel="stylesheet">
-  <link href="{% static 'assets/vendor/remixicon/remixicon.css' %} " rel="stylesheet">
-  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %} " rel="stylesheet">
-  <link href="{% static 'assets/css/style.css' %} " rel="stylesheet">
+  <link href="{% static 'asset/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'asset/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'asset/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'asset/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'asset/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'asset/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static 'asset/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <link href="{% static 'asset/css/rtl.css' %}" rel="stylesheet">
+  <link href="{% static 'asset/css/style.css' %}" rel="stylesheet">
+{% endblock %}
+<head>
+    <title>{% block title %}{% endblock %}</title>
 
-
-  {% block extra_headerss %}
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top navbar-dark bg-dark" style="background-image: url('static/asset/img/hero-bg.jpg');">
-    <div class="container  d-flex align-items-center justify-content-between ">
-
-      <h1 class="logo"><a href="index.html">Hamedanbar</a></h1>
-      <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
-
-      <nav id="navbar" class="navbar">
-        <ul>
-            <li><a class="nav-link scrollto active" href="#hero"><span>خانه</span></a></li>
-            <li><a class="nav-link scrollto" href="#about"><span>
-جستجوی وکیل</span></a></li>
-
-          <li class="dropdown"><a href="#"><span> هیات مدیره</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li class="dropdown"><a href="#"><span>پایتون</span> <i class="bi bi-chevron-right"></i></a>
-                {% for product in products %}
-
-                <ul>
-                  <li><a href="#">{{product.name}}</a></li>
-
-
-                </ul>
-                {% endfor %}
-              </li>
-
- <li class="dropdown"><a href="#"><span>جاوا</span> <i class="bi bi-chevron-right"></i></a>
-  {% for product in products %}
-
-  <ul>
-                  <li><a href="#">{{product.name }}</a></li>
-                  <li><a href="#">پیشرفته</a></li>
-
-                </ul>
-                {% endfor %}
-              </li>
-              <li><a href="#"> اندروید </a></li>
-            </ul>
-          </li>
-
-                      <li class="dropdown"><a href="#"><span>  اخبار</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li class="dropdown"><a href="#"><span>پایتون</span> <i class="bi bi-chevron-right"></i></a>
-                {% for product in products %}
-
-                <ul>
-                  <li><a href="#">{{product.name}}</a></li>
-
-
-                </ul>
-                {% endfor %}
-              </li>
-
- <li class="dropdown"><a href="#"><span>جاوا</span> <i class="bi bi-chevron-right"></i></a>
-  {% for product in products %}
-
-  <ul>
-                  <li><a href="#">{{product.name }}</a></li>
-                  <li><a href="#">پیشرفته</a></li>
-
-                </ul>
-                {% endfor %}
-              </li>
-              <li><a href="#"> اندروید </a></li>
-            </ul>
-          </li>
-
-          {% if request.user.is_authenticated %}
-
-           {% else %}
-            {% endif %}
-            <li class="nav-link scrollto">
-                <form action="" method="get" >
-            {{ form }}
-            <input type="submit" value="Search">
-            </form>
-            </li>
-
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-
-    </div>
-  </header><!-- End Header -->
-  {% endblock %}
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
-    <!-- JS, Popper.js, and jQuery -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-        crossorigin="anonymous"></script>
-
-    </head>
-
+        {% include 'inc/navbar.html' %}
+        {% include 'inc/messages.html' %}
 <body>
 
- <!-- {% include 'inc/navbar.html' %} -->
-        {% include 'inc/messages.html' %}
+
         {% block content %}
 
         {% endblock %}

@@ -6,3 +6,9 @@ class ImageForm(forms.ModelForm):
     class Meta:
         model = Vakil
         fields = ('thumbnail',)
+
+
+class VakilSearchForm(forms.ModelForm):
+    class Meta:
+        model = Vakil
+        fields  = ('name',)

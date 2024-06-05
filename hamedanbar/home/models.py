@@ -107,6 +107,7 @@ class Vakil(models.Model):
 	lastname = models.CharField( blank = True,null = True,max_length = 150,verbose_name="نام خانوادگی")
 	address = models.TextField(blank = True,null = True,verbose_name="آدرس")
 	thumbnail = models.ImageField(upload_to="images", verbose_name= "تصویر وکیل",blank = True,null = True)
+	city = models.CharField(max_length = 150,blank = True,null = True,verbose_name = 'شهر')
 
 	def __str__(self):
 		return str(self.name)
@@ -121,3 +122,18 @@ class Vakil(models.Model):
 		return format_html("<img width=100 height=75 style='border-radius: 5px;' src='{}'>".format(self.thumbnail.url))
 	thumbnail_tag.short_description = "عکس"
 
+class Riyasat(models.Model):
+	vakil = models.ForeignKey(Vakil,on_delete = models.CASCADE,related_name = 'vakils',verbose_name = 'وکیل')
+	role  = models.CharField(max_length = 50,verbose_name = 'نقش')
+
+	def __str__(self):
+		return str(self.vakil.name)
+
+
+class Comision(models.Model):
+	name = models.CharField(max_length = 150)
+	aaza = models.ManyToManyField(Vakil)
+	raees = models.BooleanField(default = False)
+
+	def __str__(self):
+		return self.name

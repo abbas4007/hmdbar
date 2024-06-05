@@ -44,7 +44,7 @@
 </div>
 <div class="py-6">
 <div class="row">
-  {% for a in vakils %}
+
 <div class="col-lg-4 col-12">
 
 <div class="card mb-5 rounded-3">
@@ -54,19 +54,19 @@
 </div>
 
 <div class="avatar avatar-xl mt-n7 ms-4">
-<img src="{{a.thumbnail.url}}" alt="Image" class="rounded-circle border-4
-              border-white-color-40">
+<!--<img src="{{a.thumbnail.url}}" alt="Image" class="rounded-circle border-4-->
+<!--              border-white-color-40">-->
 </div>
 
 <div class="card-body">
 
-<h4 class="mb-1">{{a.name}} {{a.lastname}}</h4>
-<p>{{a.city}}</p>
+<h4 class="mb-1">{{comision.aaza.name}}</h4>
+
 <div>
 
 <div class="d-flex justify-content-between
                 align-items-center">
-<a href="{% url 'home:vakil' a.id %}" class="btn btn-outline-primary">مشاهده</a>
+
 <div class="dropdown dropstart">
 <a href="#!" class="btn btn-ghost btn-icon btn-sm rounded-circle" id="dropdownMenuOne" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical icon-xs"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
@@ -81,7 +81,7 @@
 </div>
 </div>
 </div>
-  {% endfor %}
+
 
 </div>
 </div>
@@ -348,4 +348,3 @@
 </body>
 {% endblock %}
 
-</html>

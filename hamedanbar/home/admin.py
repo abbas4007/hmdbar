@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Article, Category, IPAddress,Vakil
+from .models import Article, Category, IPAddress,Vakil,Riyasat,Comision
 from import_export.admin import ImportExportModelAdmin
 import pandas as pd
 from django.http import JsonResponse
@@ -91,4 +91,6 @@ class ArticleAdmin(admin.ModelAdmin):
 
 admin.site.register(Article, ArticleAdmin)
 admin.site.register(IPAddress)
+admin.site.register(Riyasat)
+admin.site.register(Comision)
 
