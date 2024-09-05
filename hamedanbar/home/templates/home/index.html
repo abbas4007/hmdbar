@@ -1,11 +1,95 @@
-{% extends 'base.html' %}
 {% load static %}
 
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>کانون وکلای دادگستری استان همدان</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'asset/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'aasset/img/apple-touch-icon.png' %}"rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'asset/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'asset/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'asset/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'asset/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'asset/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'asset/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static 'asset/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <link href="{% static 'asset/css/rtl.css' %}" rel="stylesheet">
+  <link href="{% static 'asset/css/style.css' %}" rel="stylesheet">
+  <!-- Template Main CSS File -->
 
 
-{% block content %}
+  <!-- =======================================================
+  * Template Name: Gp
+  * Template URL: https://bootstrapmade.com/gp-free-multipurpose-html-bootstrap-template/
+  * Updated: Mar 17 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
 
-<section id="hero" class="d-flex align-items-center justify-content-center">
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top ">
+    <div class="container d-flex align-items-center justify-content-lg-between mr-5">
+
+       <img src="{% static 'img/logo.png' %}" class="img-fluid" alt="">
+
+      <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="img/logo.png" alt="" class="img-fluid"></a> -->
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">صفحه اصلی</a></li>
+          <li><a class="nav-link scrollto" href="#services">اخبار</a></li>
+          <li><a class="nav-link scrollto " href="#portfolio">جستجوی وکیل</a></li>
+          <li><a class="nav-link scrollto" href="#team">هیات مدیره</a></li>
+          <li class="dropdown"><a href="#"><span>کمیسیون ها</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="#">کارآموزی</a></li>
+              <li><a href="#">فرهنگی و رفاهی</a></li>
+              <li><a href="#">حقوق بشر</a></li>
+              <li class="dropdown"><a href="#"><span>دادسرای انتظامی</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="#">کارآموزی</a></li>
+                  <li><a href="#">فرهنگی و رفاهی</a></li>
+                  <li><a href="#">حقوق بشر</a></li>
+                  <li><a href="#">اداره معاضدت و تسخیری</a></li>
+                  <li><a href="#">نقل و انتقالات</a></li>
+              <li><a href="#">اداره معاضدت و تسخیری</a></li>
+              <li><a href="#">نقل و انتقالات</a></li>
+              <li><a href="#"> ورزشی</a></li>
+              <li><a href="#">آموزش و پژوهش <a></li>
+              <li><a href="#">محیط زیست</a></li>
+
+
+            </ul>
+          </li>
+          <!-- <li><a class="nav-link scrollto" href="#contact">Contact</a></li> -->
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center justify-content-center">
     <div class="container" data-aos="fade-up">
 
 
@@ -14,14 +98,14 @@
         <div class="col-xl-2 col-md-4">
           <div class="icon-box">
             <div class="icon"><i class="bi bi-search"></i></div>
-            <h4 class="title"><a href="{% url 'home:vokala' %}" >جستجوی وکیل  </a></h4>
+            <h4 style="font-family: 'B Titr';"><a href="{% url 'home:vokala' %}"  style="font-family: 'B Titr';">جستجوی وکیل  </a></h4>
             <p class="description">جستجوی وکلا بر اساس نام، نام خانوادگی،...</p>
           </div>
         </div>
         <div class="col-xl-2 col-md-4">
           <div class="icon-box">
             <div class="icon"><i class="bi bi-laptop"></i></div>
-            <h4 class="title"><a href="">اتوماسیون</a></h4>
+            <h4 class="title"><a href="" style="font-family: Sahel;">اتوماسیون</a></h4>
             <p class="description">ورود به اتوماسیون تخصصی وکلا  </p>
           </div>
         </div>
@@ -29,7 +113,7 @@
         <div class="col-xl-2 col-md-4">
           <div class="icon-box">
             <div class="icon"><i class="bi bi-envelope"></i></div>
-            <h4 class="title"><a href="">پست الکترونیکی</a></h4>
+            <h4 class="title"><a href=""  style="font-family: Sahel;">پست الکترونیکی</a></h4>
             <p class="description">ثبت نام وکلا جهت دریافت پست الکترونیکی</p>          </div>
           </div>
         </div>
@@ -38,21 +122,27 @@
 
     </div>
   </section><!-- End Hero -->
+
+  <main id="main">
+
     <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+
 
 
     <!-- ======= Clients Section ======= -->
     <section id="clients" class="clients">
       <div class="container" data-aos="zoom-in">
 
-        <div class="clients-slider swiper" style="height: 100px;">
+        <div class="clients-slider swiper">
           <div class="swiper-wrapper align-items-center">
             <div class="swiper-slide"><img src="{% static 'asset/img/clients/yvnfl.jpg' %}" class="img-fluid" alt=""></div>
             <div class="swiper-slide"><img src="{% static 'asset/img/clients/9nj03.jpg' %}" class="img-fluid" alt=""></div>
             <div class="swiper-slide"><img src="{% static 'asset/img/clients/ugqpd.jpg' %}" class="img-fluid" alt=""></div>
             <div class="swiper-slide"><img src="{% static 'asset/img/clients/bjolg.jpg' %}" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="{% static 'asset/img/clients/ayljq.jpg' %}" class="img-fluid" alt=""></div>
-                      <div class="swiper-pagination"></div>
+            <div class="swiper-slide"><img src="{% static 'asset/img/clients/ayljq.jpg' %}" class="img-fluid" alt=""></div>          <div class="swiper-pagination"></div>
+            <div class="swiper-slide"><img src="{% static 'asset/img/clients/amwu1.jpg' %}" class="img-fluid" alt=""></div>          <div class="swiper-pagination"></div>
         </div>
 
       </div>
@@ -65,22 +155,23 @@
           <h2>اخبار</h2>
         </div>
 
-     <div class="row">
-  {% for a in article %}
-  <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-   <div class="swiper-slide">
-      <div class="testimonial-item">
-
-      <h4><a href="{% url 'home:detail' a.slug %}" >{{a.title}}</a></h4>
-        <img src="{{a.thumbnail.url}}" class="img-fluid" alt="">
-
+<div class="row">
+          {% for i in article %}
+          <div class="card col-md-3 g-2 mr-2">
+    <img class="card-img-top" src="{{i.thumbnail.url}}" alt="Card image cap" style="width: 100%; height: 150px">
+    <div class="card-body">
+     <a href="{% url 'home:detail' i.slug %}"> <h5 class="card-title" style="font-family: 'B Titr'; font-weight: bold;font-size: 16px;">{{i.title}}</h5></a>
+      <p class="card-text" style="align-content: center; font-family: 'B Nazanin'; font-size: 16px;">{{i.description}}</p>
+      <div class="card-footer">
+      <small class="text-muted">Last updated 3 mins ago</small>
+    </div>
     </div>
   </div>
-  {% endfor %}
-        </div>
-
+    {% endfor %}
       </div>
+    </section>
       </div>
+    </section>
     </section><!-- End Services Section --><!-- End Clients Section -->
 
     <!-- ======= Features Section ======= -->
@@ -110,135 +201,57 @@
         </div>
 
       </div>
-    </section><!-- End Features Section -->
-
-    <!-- ======= Services Section ======= -->
-    
-
-    <!-- ======= Cta Section ======= -->
-    <section id="cta" class="cta">
-      <div class="container" data-aos="zoom-in">
-
-        <div class="text-center">
-          <h3>Call To Action</h3>
-          <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          <a class="cta-btn" href="#">Call To Action</a>
-        </div>
-
-      </div>
-    </section><!-- End Cta Section -->
-
-    <!-- ======= Portfolio Section ======= -->
-<!--    <section id="portfolio" class="portfolio">-->
-<!--      <div class="container" data-aos="fade-up">-->
-
-
-
-<!--            <div class="swiper-slide">-->
-<!--              <div class="testimonial-item">-->
-<!--                <img src="{% static 'asset/img/testimonials/2.jpg' %}" class="testimonial-img" alt="">-->
-<!--                <h3>Sara Wilsson</h3>-->
-<!--                <h4>Designer</h4>-->
-<!--                <p>-->
-<!--                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>-->
-<!--                  Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.-->
-<!--                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>-->
-<!--                </p>-->
-<!--              </div>-->
-<!--            </div>&lt;!&ndash; End testimonial item &ndash;&gt;-->
-
-<!--            <div class="swiper-slide">-->
-<!--              <div class="testimonial-item">-->
-<!--                <img src="{% static 'asset/img/testimonials/3.jpg' %}" class="testimonial-img" alt="">-->
-<!--                <h3>Jena Karlis</h3>-->
-<!--                <h4>Store Owner</h4>-->
-<!--                <p>-->
-<!--                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>-->
-<!--                  Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.-->
-<!--                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>-->
-<!--                </p>-->
-<!--              </div>-->
-<!--            </div>&lt;!&ndash; End testimonial item &ndash;&gt;-->
-
-<!--            <div class="swiper-slide">-->
-<!--              <div class="testimonial-item">-->
-<!--                <img src="{% static 'asset/img/testimonials/4.jpg' %}" class="testimonial-img" alt="">-->
-<!--                <h3>Matt Brandon</h3>-->
-<!--                <h4>Freelancer</h4>-->
-<!--                <p>-->
-<!--                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>-->
-<!--                  Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.-->
-<!--                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>-->
-<!--                </p>-->
-<!--              </div>-->
-<!--            </div>&lt;!&ndash; End testimonial item &ndash;&gt;-->
-
-<!--            <div class="swiper-slide">-->
-<!--              <div class="testimonial-item">-->
-<!--                <img src="{% static 'asset/img/testimonials/5.jpg' %}" class="testimonial-img" alt="">-->
-<!--                <h3>John Larson</h3>-->
-<!--                <h4>Entrepreneur</h4>-->
-<!--                <p>-->
-<!--                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>-->
-<!--                  Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.-->
-<!--                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>-->
-<!--                </p>-->
-<!--              </div>-->
-<!--            </div>&lt;!&ndash; End testimonial item &ndash;&gt;-->
-<!--          </div>-->
-<!--          <div class="swiper-pagination">-->
-
-<!--          </div>-->
-<!--    </section>-->
-<!--        </div>-->
-<!--    </section>-->
-
-
-
-
-   
-    <!-- ======= Team Section ======= -->
-    <section id="team" class="team">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>هیات مدیره</h2>
-
-        </div>
-
-        <div class="row">
-{% for i in heyatmodireh %}
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-            <div class="member">
-              <div class="member-img">
-                <img  src="{{i.vakil.thumbnail.url}}" class="img-fluid" alt="">
-                <!-- <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div> -->
-              </div>
-              <div class="member-info">
-                <h4>{{i.vakil.name}}</h4>
-                <span>{{i.vakil.role}}</span>
-              </div>
-
-            </div>
-          </div>
-
-
-
-        </div>
-        {% endfor %}
-      </div>
     </section>
 
 
 
 
-  </main>
+    <!-- ======= Testimonials Section ======= -->
 
+    <!-- ======= Team Section ======= -->
+    <section id="team" class="team">
+      <div class="container">
+
+        <div class="section-title">
+          <h2 style="font-family: 'B Titr';">هیات مدیره</h2>
+
+        </div>
+
+        <div class="row">
+          {% for i in heyatmodireh %}
+          <div class="card col-md-3 g-2 mr-2">
+    <img class="card-img-top" src="{{i.vakil.thumbnail.url}}" alt="Card image cap" style="width: 100%; height: 150px">
+    <div class="card-body">
+      {{i.role}}
+      <p class="card-text" style="align-content: center; font-family: 'B Nazanin'; font-size: 16px;">{{i.vakil.name}}  {{i.vakil.lastname}}</p>
+      <div class="card-footer">
+      <small class="text-muted">{{i.role}}</small>
+    </div>
+    </div>
+  </div>
+    {% endfor %}
+      </div>
+  </div>
+
+
+
+        </div>
+
+      </div>
+    </section>
+      </div>
+    </section>
+      </div>
+    </section>
+      </div>
+  </main>
+</body>
+    <section id="testimonials" class="testimonials">
+
+      <div class="container" data-aos="zoom-in">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4633.700357069715!2d48.514082359384766!3d34.792833464831936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ff1ece11fe48d3d%3A0xed1d4fff92db4531!2z2qnYp9mG2YjZhiDZiNqp2YTYp9uMINiv2KfYr9qv2LPYqtix24wg2KfYs9iq2KfZhiDZh9mF2K_Yp9mG!5e0!3m2!1sen!2s!4v1720593822023!5m2!1sen!2s" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+ </div>
+    </section>
   <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="footer-top">
@@ -327,7 +340,7 @@
 
   <!-- Template Main JS File -->
   <script src="{% static 'asset/js/main.js' %}"></script>
-{% endblock %}
+
 </body>
 
 </html>

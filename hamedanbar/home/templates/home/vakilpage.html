@@ -1,445 +1,515 @@
+{% extends 'base.html' %}
 {% load static %}
-
-{% block extra_headerss %}
-
-  <link href="{% static 'asset/css//rtl.css' %}" rel="stylesheet">
-<html lang="en" dir="rtl">
- <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>کانون وکلای دادگستری استان همدان</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
-  <!-- Favicons -->
-  <link href="{% static 'asset/img/favicon.png' %}" rel="icon">
-  <link href="{% static 'aasset/img/apple-touch-icon.png' %}"rel="apple-touch-icon">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="{% static 'asset/vendor/aos/aos.css' %}" rel="stylesheet">
-  <link href="{% static 'asset/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-  <link href="{% static 'asset/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
-  <link href="{% static 'asset/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
-  <link href="{% static 'asset/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
-  <link href="{% static 'asset/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
-  <link href="{% static 'asset/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
-  <link href="{% static 'asset/css/styles.css' %}" rel="stylesheet">
-{% endblock %}
-
 
 {% block content%}
 
-<div class="wrapper">
-    <div class="container">
+<br>
+<br>
+<br>
 
-        <div class="wraper">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="bg-picture text-center">
-                        <div class="bg-picture-overlay"></div>
-                        <div class="profile-info-name">
-                            <img src="{{vakil.thumbnail.url}}" class="thumb-lg img-circle img-thumbnail" alt="profile-image">
-                            <h3 class="text-white">{{vakil.name}} {{vakil.lastname}}</h3>
-                        </div>
-                    </div>
-                    <!--/ meta -->
-                </div>
-            </div>
-            <div class="row user-tabs">
-                <div class="col-lg-6 col-md-9 col-sm-9">
-                    <ul class="nav nav-tabs tabs" style="width: 100%;">
-                        <li class="active tab" style="width: 25%;">
-                            <a href="#home-2" data-toggle="tab" aria-expanded="false" class="active">
-                                <span class="visible-xs"><i class="fa fa-home"></i></span>
-                                <span class="hidden-xs">About Me</span>
-                            </a>
-                        </li>
-                        <li class="tab" style="width: 25%;">
-                            <a href="#profile-2" data-toggle="tab" aria-expanded="false">
-                                <span class="visible-xs"><i class="fa fa-user"></i></span>
-                                <span class="hidden-xs">Activities</span>
-                            </a>
-                        </li>
-                        <li class="tab" style="width: 25%;">
-                            <a href="#messages-2" data-toggle="tab" aria-expanded="true">
-                                <span class="visible-xs"><i class="fa fa-envelope-o"></i></span>
-                                <span class="hidden-xs">Projects</span>
-                            </a>
-                        </li>
-                        <li class="tab" style="width: 25%;">
-                            <a href="#settings-2" data-toggle="tab" aria-expanded="false">
-                                <span class="visible-xs"><i class="fa fa-cog"></i></span>
-                                <span class="hidden-xs">Settings</span>
-                            </a>
-                        </li>
-                        <div class="indicator" style="right: 476px; left: 0px;"></div>
-                        <div class="indicator" style="right: 476px; left: 0px;"></div>
-                    </ul>
-                </div>
-                <div class="col-lg-6 col-md-3 col-sm-3 hidden-xs">
-                    <div class="pull-right">
-                        <div class="dropdown">
-                            <a data-toggle="dropdown" class="dropdown-toggle btn-rounded btn btn-primary waves-effect waves-light" href="#"> Following <span class="caret"></span></a>
-                            <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                                <li><a href="#">Poke</a></li>
-                                <li><a href="#">Private message</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Unfollow</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
+<!--  <div class="container" style="background-color: #0d6efd; height: 200px" >-->
+<!--       <div class="row" >-->
 
-                    <div class="tab-content profile-tab-content">
-                        <div class="tab-pane active" id="home-2">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <!-- Personal-Information -->
-                                    <div class="panel panel-default panel-fill">
-                                        <div class="panel-heading">
-                                            <h3 class="panel-title">Personal Information</h3>
-                                        </div>
-                                        <div class="panel-body">
-                                            <div class="about-info-p">
-                                                <strong>Full Name</strong>
-                                                <br>
-                                                <p class="text-muted">Johnathan Deo</p>
-                                            </div>
-                                            <div class="about-info-p">
-                                                <strong>Mobile</strong>
-                                                <br>
-                                                <p class="text-muted">(123) 123 1234</p>
-                                            </div>
-                                            <div class="about-info-p">
-                                                <strong>Email</strong>
-                                                <br>
-                                                <p class="text-muted">johnathandeon @moltran.com</p>
-                                            </div>
-                                            <div class="about-info-p m-b-0">
-                                                <strong>Location</strong>
-                                                <br>
-                                                <p class="text-muted">USA</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Personal-Information -->
+<!--           <h1 class="mt-4 p-5" style="margin-right: 500px;     font-family: Sahel!important;">{{vakil.name}} {{vakil.lastname}}</h1>-->
+<!--  </div>-->
+<!--  </div>-->
+<!-- <br>-->
+<!-- <br>-->
+<!-- <br>-->
+<!-- <div class="container">-->
+<!-- <div class="row">-->
+<!--<div class="col-md-4">-->
 
-                                    <!-- Languages -->
-                                    <div class="panel panel-default panel-fill">
-                                        <div class="panel-heading">
-                                            <h3 class="panel-title">Languages</h3>
-                                        </div>
-                                        <div class="panel-body">
-                                            <ul>
-                                                <li>English</li>
-                                                <li>Franch</li>
-                                                <li>Greek</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <!-- Languages -->
+<!--   <img src="{{vakil.thumbnail.url}}" class="img-fluid" alt="" style="height: 555px;">-->
 
-                                </div>
+<!--</div>-->
 
-                                <div class="col-md-8">
-                                    <!-- Personal-Information -->
-                                    <div class="panel panel-default panel-fill">
-                                        <div class="panel-heading">
-                                            <h3 class="panel-title">شهر</h3>
-                                        </div>
-                                        <div class="panel-body">
-                                            <p>{{vakil.city}}</p>
-                                        </div>
-                                    </div>
-                                    <!-- Personal-Information -->
+<!-- <div class="col-md-8">-->
+<!-- <div class="container p-4"  >-->
 
-                                    <div class="panel panel-default panel-fill">
-                                        <div class="panel-heading">
-                                            <h3 class="panel-title">تلفن همراه</h3>
-                                        </div>
-                                        <div class="panel-body">
-                                            <div class="m-b-15">
-                                                <h5>Angular Js <span class="pull-right">60%</span></h5>
-                                                <div class="progress">
-                                                    <div class="progress-bar progress-bar-primary wow animated progress-animated" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%; visibility: hidden; animation-name: none;">
-                                                        <span class="sr-only">60% Complete</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                        <div class="panel-heading">
-                                            <h3 class="panel-title">آدرس</h3>
-                                        </div>
-                                        <div class="panel-body">
-                                            <div class="m-b-15">
-                                                <h5>0988140263 <span class="pull-right"></span></h5>
-                                                <div class="progress">
-                                                    <div class="progress-bar progress-bar-primary wow animated progress-animated" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%; visibility: hidden; animation-name: none;">
-                                                        <span class="sr-only">60% Complete</span>
-                                                    </div>
-                                                </div>
-                                            </div>
+<!--     <div class="row ">-->
 
-                         <div class="panel-heading">
-                                            <h3 class="panel-title">شماره پروانه وکالت</h3>
-                                        </div>
-                                        <div class="panel-body">
-                                            <div class="m-b-15">
-                                                <h5>01 <span class="pull-right"></span></h5>
-                                                <div class="progress">
-                                                    <div class="progress-bar progress-bar-primary wow animated progress-animated" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%; visibility: hidden; animation-name: none;">
-                                                        <span class="sr-only">60% Complete</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="m-b-15">
-                                                <h5>Javascript <span class="pull-right">90%</span></h5>
-                                                <div class="progress">
-                                                    <div class="progress-bar progress-bar-pink wow animated progress-animated" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%; visibility: hidden; animation-name: none;">
-                                                        <span class="sr-only">90% Complete</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                        <div class="panel-heading">
-                                            <h3 class="panel-title">انقضاء پروانه وکالت</h3>
-                                        </div>
-                                        <div class="panel-body">
-                                            <div class="m-b-15">
-                                                <h5>01 <span class="pull-right"></span></h5>
-                                                <div class="progress">
-                                                    <div class="progress-bar progress-bar-primary wow animated progress-animated" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%; visibility: hidden; animation-name: none;">
-                                                        <span class="sr-only">60% Complete</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="m-b-15">
-                                                <h5>Javascript <span class="pull-right">90%</span></h5>
-                                                <div class="progress">
-                                                    <div class="progress-bar progress-bar-pink wow animated progress-animated" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%; visibility: hidden; animation-name: none;">
-                                                        <span class="sr-only">90% Complete</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="m-b-15">
-                                                <h5>Wordpress <span class="pull-right">80%</span></h5>
-                                                <div class="progress">
-                                                    <div class="progress-bar progress-bar-purple wow animated progress-animated" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%; visibility: hidden; animation-name: none;">
-                                                        <span class="sr-only">80% Complete</span>
-                                                    </div>
-                                                </div>
-                                            </div>
+<!--  <div class="col-sm-3" >-->
 
-                                            <div class="m-b-0">
-                                                <h5>HTML5 &amp; CSS3 <span class="pull-right">95%</span></h5>
-                                                <div class="progress">
-                                                    <div class="progress-bar progress-bar-info wow animated progress-animated" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 95%; visibility: hidden; animation-name: none;">
-                                                        <span class="sr-only">95% Complete</span>
-                                                    </div>
-                                                </div>
-                                            </div>
+<!--   <div class="card" style="width:200px">-->
+<!--  <img class="card-img-top" src="{% static 'calender.png' %}" alt="Card image">-->
+<!--  <div class="card-body">-->
+<!--    <h4 class="card-title">شماره پروانه وکالت</h4>-->
+<!--    <p class="card-text">{{vakil.code}}</p>-->
+<!--  </div>-->
+<!--</div>-->
+<!--  </div>-->
+<!--  <div class="col-sm-3" >-->
 
-                                        </div>
-                                    </div>
+<!-- <div class="card" style="width:200px">-->
+<!--  <img class="card-img-top" src="{% static 'expire.png' %}" alt="Card image">-->
+<!--  <div class="card-body">-->
+<!--    <h4 class="card-title">شماره پروانه وکالت-->
+<!--</h4>-->
+<!--    <p class="card-text">{{vakil.code}}</p>-->
+<!--  </div>-->
+<!--</div>-->
+<!--           </div>-->
+<!--  <div class="col-sm-3" >-->
 
-                                </div>
+<!--        <div class="card" style="width:200px">-->
+<!--  <img class="card-img-top" src="{% static 'phone.png' %}" alt="Card image">-->
+<!--  <div class="card-body">-->
+<!--    <h4 class="card-title">شماره موبایل-->
+<!--</h4>-->
+<!--    <p class="card-text">{{vakil.code}}</p>-->
+<!--  </div>-->
+<!--</div>-->
+<!--           </div>-->
 
-                            </div>
-                        </div>
+<!--</div>-->
+<!--     </div>-->
 
-                        <div class="tab-pane" id="profile-2">
-                            <!-- Personal-Information -->
-                            <div class="panel panel-default panel-fill">
 
-                                <div class="panel-body">
-                                    <div class="timeline-2">
-                                        <div class="time-item">
-                                            <div class="item-info">
-                                                <div class="text-muted">5 minutes ago</div>
-                                                <p><strong><a href="#" class="text-info">John Doe</a></strong> Uploaded a photo <strong>"DSC000586.jpg"</strong></p>
-                                            </div>
-                                        </div>
+<!--     <div class="row p-4" >-->
 
-                                        <div class="time-item">
-                                            <div class="item-info">
-                                                <div class="text-muted">30 minutes ago</div>
-                                                <p><a href="" class="text-info">Lorem</a> commented your post.</p>
-                                                <p><em>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam laoreet tellus ut tincidunt euismod. "</em></p>
-                                            </div>
-                                        </div>
+<!--  <div class="col-sm-3" >-->
 
-                                        <div class="time-item">
-                                            <div class="item-info">
-                                                <div class="text-muted">59 minutes ago</div>
-                                                <p><a href="" class="text-info">Jessi</a> attended a meeting with<a href="#" class="text-success">John Doe</a>.</p>
-                                                <p><em>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam laoreet tellus ut tincidunt euismod. "</em></p>
-                                            </div>
-                                        </div>
+<!--   <div class="card" style="width:200px">-->
+<!--  <img class="card-img-top" src="{% static 'calender.png' %}" alt="Card image">-->
+<!--  <div class="card-body">-->
+<!--    <h4 class="card-title">شماره پروانه وکالت</h4>-->
+<!--    <p class="card-text">{{vakil.code}}</p>-->
+<!--  </div>-->
+<!--</div>-->
+<!--  </div>-->
 
-                                        <div class="time-item">
-                                            <div class="item-info">
-                                                <div class="text-muted">5 minutes ago</div>
-                                                <p><strong><a href="#" class="text-info">John Doe</a></strong>Uploaded 2 new photos</p>
-                                            </div>
-                                        </div>
+<!--  <div class="col-sm-3" >-->
 
-                                        <div class="time-item">
-                                            <div class="item-info">
-                                                <div class="text-muted">30 minutes ago</div>
-                                                <p><a href="" class="text-info">Lorem</a> commented your post.</p>
-                                                <p><em>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam laoreet tellus ut tincidunt euismod. "</em></p>
-                                            </div>
-                                        </div>
+<!-- <div class="card" style="width:200px">-->
+<!--  <img class="card-img-top" src="{% static 'expire.png' %}" alt="Card image">-->
+<!--  <div class="card-body">-->
+<!--    <h4 class="card-title">شماره پروانه وکالت-->
+<!--</h4>-->
+<!--    <p class="card-text">{{vakil.code}}</p>-->
+<!--  </div>-->
+<!--</div>-->
+<!--           </div>-->
+<!--  <div class="col-sm-3" >-->
 
-                                        <div class="time-item">
-                                            <div class="item-info">
-                                                <div class="text-muted">59 minutes ago</div>
-                                                <p><a href="" class="text-info">Jessi</a> attended a meeting with<a href="#" class="text-success">John Doe</a>.</p>
-                                                <p><em>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam laoreet tellus ut tincidunt euismod. "</em></p>
-                                            </div>
-                                        </div>
-                                    </div>
+<!--        <div class="card" style="width:200px">-->
+<!--  <img class="card-img-top" src="{% static 'building.png' %}" alt="Card image">-->
+<!--  <div class="card-body">-->
+<!--    <h4 class="card-title">شماره موبایل-->
+<!--</h4>-->
+<!--    <p class="card-text">{{vakil.code}}</p>-->
+<!--  </div>-->
+<!--</div>-->
+<!--           </div>-->
 
-                                </div>
-                            </div>
-                            <!-- Personal-Information -->
-                        </div>
+<!--</div>-->
+<!--     </div>-->
+<!--</div>-->
+<!--</div>-->
+<style>
+    ed, to get the result that you can see in the preview selection
 
-                        <div class="tab-pane" id="messages-2">
-                            <!-- Personal-Information -->
-                            <div class="panel panel-default panel-fill">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title">My Projects</h3>
-                                </div>
-                                <div class="panel-body">
-                                    <div class="table-responsive">
-                                        <table class="table">
-                                            <thead>
-                                                <tr>
-                                                    <th>#</th>
-                                                    <th>Project Name</th>
-                                                    <th>Start Date</th>
-                                                    <th>Due Date</th>
-                                                    <th>Status</th>
-                                                    <th>Assign</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>Moltran Admin</td>
-                                                    <td>01/01/2015</td>
-                                                    <td>07/05/2015</td>
-                                                    <td><span class="label label-info">Work in Progress</span></td>
-                                                    <td>Coderthemes</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>2</td>
-                                                    <td>Moltran Frontend</td>
-                                                    <td>01/01/2015</td>
-                                                    <td>07/05/2015</td>
-                                                    <td><span class="label label-success">Pending</span></td>
-                                                    <td>Coderthemes</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3</td>
-                                                    <td>Moltran Admin</td>
-                                                    <td>01/01/2015</td>
-                                                    <td>07/05/2015</td>
-                                                    <td><span class="label label-pink">Done</span></td>
-                                                    <td>Coderthemes</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>4</td>
-                                                    <td>Moltran Frontend</td>
-                                                    <td>01/01/2015</td>
-                                                    <td>07/05/2015</td>
-                                                    <td><span class="label label-purple">Work in Progress</span></td>
-                                                    <td>Coderthemes</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>5</td>
-                                                    <td>Moltran Admin</td>
-                                                    <td>01/01/2015</td>
-                                                    <td>07/05/2015</td>
-                                                    <td><span class="label label-warning">Coming soon</span></td>
-                                                    <td>Coderthemes</td>
-                                                </tr>
+body{
+    font-size: 16px;
+    color: #6f6f6f;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0.8px;
+    margin-top:20px;
+}
+.font-size38 {
+    font-size: 38px;
+}
+.team-single-text .section-heading h4,
+.section-heading h5 {
+    font-size: 36px
+}
 
-                                            </tbody>
-                                        </table>
-                                    </div>
+.team-single-text .section-heading.half {
+    margin-bottom: 20px
+}
 
-                                </div>
-                            </div>
-                            <!-- Personal-Information -->
-                        </div>
+@media screen and (max-width: 1199px) {
+    .team-single-text .section-heading h4,
+    .section-heading h5 {
+        font-size: 32px
+    }
+    .team-single-text .section-heading.half {
+        margin-bottom: 15px
+    }
+}
 
-                        <div class="tab-pane" id="settings-2">
-                            <!-- Personal-Information -->
-                            <div class="panel panel-default panel-fill">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title">Edit Profile</h3>
-                                </div>
-                                <div class="panel-body">
-                                    <form role="form">
-                                        <div class="form-group">
-                                            <label for="FullName">Full Name</label>
-                                            <input type="text" value="John Doe" id="FullName" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="Email">Email</label>
-                                            <input type="email" value="first.last@example.com" id="Email" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="Username">Username</label>
-                                            <input type="text" value="john" id="Username" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="Password">Password</label>
-                                            <input type="password" placeholder="6 - 15 Characters" id="Password" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="RePassword">Re-Password</label>
-                                            <input type="password" placeholder="6 - 15 Characters" id="RePassword" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="AboutMe">About Me</label>
-                                            <textarea style="height: 125px" id="AboutMe" class="form-control">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</textarea>
-                                        </div>
-                                        <button class="btn btn-primary waves-effect waves-light w-md" type="submit">Save</button>
-                                    </form>
+@media screen and (max-width: 991px) {
+    .team-single-text .section-heading h4,
+    .section-heading h5 {
+        font-size: 28px
+    }
+    .team-single-text .section-heading.half {
+        margin-bottom: 10px
+    }
+}
 
-                                </div>
-                            </div>
-                            <!-- Personal-Information -->
-                        </div>
-                    </div>
-                </div>
-            </div>
+@media screen and (max-width: 767px) {
+    .team-single-text .section-heading h4,
+    .section-heading h5 {
+        font-size: 24px
+    }
+}
 
-            <!-- Footer -->
-            <footer class="footer text-right">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <ul class="pull-right list-inline m-b-0">
-                                <li>
-                                    <a href="https://bootdey.com">Bootdey.com</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-            <!-- End Footer -->
-        </div>
-        <!-- end container -->
+
+.team-single-icons ul li {
+    display: inline-block;
+    border: 1px solid #02c2c7;
+    border-radius: 50%;
+    color: #86bc42;
+    margin-right: 8px;
+    margin-bottom: 5px;
+    -webkit-transition-duration: .3s;
+    transition-duration: .3s
+}
+
+.team-single-icons ul li a {
+    color: #02c2c7;
+    display: block;
+    font-size: 14px;
+    height: 25px;
+    line-height: 26px;
+    text-align: center;
+    width: 25px
+}
+
+.team-single-icons ul li:hover {
+    background: #02c2c7;
+    border-color: #02c2c7
+}
+
+.team-single-icons ul li:hover a {
+    color: #fff
+}
+
+.team-social-icon li {
+    display: inline-block;
+    margin-right: 5px
+}
+
+.team-social-icon li:last-child {
+    margin-right: 0
+}
+
+.team-social-icon i {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 15px;
+    border-radius: 50px
+}
+
+.padding-30px-all {
+    padding: 30px;
+}
+.bg-light-gray {
+    background-color: #f7f7f7;
+}
+.text-center {
+    text-align: center!important;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+.list-style9 {
+    list-style: none;
+    padding: 0
+}
+
+.list-style9 li {
+    position: relative;
+    padding: 0 0 15px 0;
+    margin: 0 0 15px 0;
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.1)
+}
+
+.list-style9 li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0
+}
+
+
+.text-sky {
+    color: #02c2c7
+}
+
+.text-orange {
+    color: #e95601
+}
+
+.text-green {
+    color: #5bbd2a
+}
+
+.text-yellow {
+    color: #f0d001
+}
+
+.text-pink {
+    color: #ff48a4
+}
+
+.text-purple {
+    color: #9d60ff
+}
+
+.text-lightred {
+    color: #ff5722
+}
+
+a.text-sky:hover {
+    opacity: 0.8;
+    color: #02c2c7
+}
+
+a.text-orange:hover {
+    opacity: 0.8;
+    color: #e95601
+}
+
+a.text-green:hover {
+    opacity: 0.8;
+    color: #5bbd2a
+}
+
+a.text-yellow:hover {
+    opacity: 0.8;
+    color: #f0d001
+}
+
+a.text-pink:hover {
+    opacity: 0.8;
+    color: #ff48a4
+}
+
+a.text-purple:hover {
+    opacity: 0.8;
+    color: #9d60ff
+}
+
+a.text-lightred:hover {
+    opacity: 0.8;
+    color: #ff5722
+}
+
+.custom-progress {
+    height: 10px;
+    border-radius: 50px;
+    box-shadow: none;
+    margin-bottom: 25px;
+}
+.progress {
+    display: -ms-flexbox;
+    display: flex;
+    height: 1rem;
+    overflow: hidden;
+    font-size: .75rem;
+    background-color: #e9ecef;
+    border-radius: .25rem;
+}
+
+
+.bg-sky {
+    background-color: #02c2c7
+}
+
+.bg-orange {
+    background-color: #e95601
+}
+
+.bg-green {
+    background-color: #5bbd2a
+}
+
+.bg-yellow {
+    background-color: #f0d001
+}
+
+.bg-pink {
+    background-color: #ff48a4
+}
+
+.bg-purple {
+    background-color: #9d60ff
+}
+
+.bg-lightred {
+    background-color: #ff5722
+}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
+<div class="container">
+    <div class="team-single">
+        <div class="row">
+             <div  style="width: 1190px;height: 300px;margin-top: 50px;">
+  <img  src="{% static 'banner.jpg'  %}"  style="width: 1190px;height: 294px" alt="Card image">
+
     </div>
-    <!-- end wrapper -->
+            <div class="col-lg-4 col-md-5 xs-margin-30px-bottom">
+                <div class="team-single-img">
+            <img src="{{ vakil.thumbnail.url }}" class="img-fluid" alt="">
+                </div>
+                <div class="bg-light-gray padding-30px-all md-padding-25px-all sm-padding-20px-all text-center">
+                    <h4 class="margin-10px-bottom font-size24 md-font-size22 sm-font-size20 font-weight-600">Class Teacher</h4>
+<!--                    <p class="sm-width-95 sm-margin-auto">We are proud of child student. We teaching great activities and best program for your kids.</p>-->
+                    <div class="margin-20px-top team-single-icons">
+                        <ul class="no-margin">
+                            <li><a href="javascript:void(0)"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="javascript:void(0)"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="javascript:void(0)"><i class="fab fa-google-plus-g"></i></a></li>
+                            <li><a href="javascript:void(0)"><i class="fab fa-instagram"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-8 col-md-7">
+                <div class="team-single-text padding-50px-left sm-no-padding-left">
+                    <h4 class="font-size38 sm-font-size32 xs-font-size30">{{vakil.name}} {{vakil.lastname}}</h4>
+<!--                    <p class="no-margin-bottom">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum voluptatem.</p>-->
+                    <div class="contact-info-section margin-40px-tb">
+     <div class="row ">
+
+  <div class="col-sm-3" >
+
+   <div class="card" style="width:200px">
+  <img class="card-img-top" src="{% static 'calender.png' %}" alt="Card image">
+  <div class="card-body">
+    <h4 class="card-title">شماره پروانه وکالت</h4>
+    <p class="card-text">{{vakil.code}}</p>
+  </div>
+</div>
+  </div>
+  <div class="col-sm-3" >
+
+ <div class="card" style="width:200px">
+  <img class="card-img-top" src="{% static 'expire.png' %}" alt="Card image">
+  <div class="card-body">
+    <h4 class="card-title">شماره پروانه وکالت
+</h4>
+    <p class="card-text">{{vakil.code}}</p>
+  </div>
+</div>
+           </div>
+  <div class="col-sm-3" >
+
+        <div class="card" style="width:200px">
+  <img class="card-img-top" src="{% static 'phone.png' %}" alt="Card image">
+  <div class="card-body">
+    <h4 class="card-title">شماره موبایل
+</h4>
+    <p class="card-text">{{vakil.code}}</p>
+  </div>
+</div>
+           </div>
+
+</div>
+     </div>
+
+
+     <div class="row p-4" >
+
+  <div class="col-sm-3" >
+
+   <div class="card" style="width:200px">
+  <img class="card-img-top" src="{% static 'calender.png' %}" alt="Card image">
+  <div class="card-body">
+    <h4 class="card-title">شماره پروانه وکالت</h4>
+    <p class="card-text">{{vakil.code}}</p>
+  </div>
+</div>
+  </div>
+
+  <div class="col-sm-3" >
+
+ <div class="card" style="width:200px">
+  <img class="card-img-top" src="{% static 'expire.png' %}" alt="Card image">
+  <div class="card-body">
+    <h4 class="card-title">شماره پروانه وکالت
+</h4>
+    <p class="card-text">{{vakil.code}}</p>
+  </div>
+</div>
+           </div>
+  <div class="col-sm-3" >
+
+        <div class="card" style="width:200px">
+  <img class="card-img-top" src="{% static 'building.png' %}" alt="Card image">
+  <div class="card-body">
+    <h4 class="card-title">شماره موبایل
+</h4>
+    <p class="card-text">{{vakil.code}}</p>
+  </div>
+</div>
+           </div>
+
+</div>
+     </div>
+
+
+                    </div>
+
+<!--                    <h5 class="font-size24 sm-font-size22 xs-font-size20">Professional Skills</h5>-->
+
+<!--                    <div class="sm-no-margin">-->
+<!--                        <div class="progress-text">-->
+<!--                            <div class="row">-->
+<!--                                <div class="col-7">Positive Behaviors</div>-->
+<!--                                <div class="col-5 text-right">40%</div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="custom-progress progress">-->
+<!--                            <div role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:40%" class="animated custom-bar progress-bar slideInLeft bg-sky"></div>-->
+<!--                        </div>-->
+<!--                        <div class="progress-text">-->
+<!--                            <div class="row">-->
+<!--                                <div class="col-7">Teamworking Abilities</div>-->
+<!--                                <div class="col-5 text-right">50%</div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="custom-progress progress">-->
+<!--                            <div role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:50%" class="animated custom-bar progress-bar slideInLeft bg-orange"></div>-->
+<!--                        </div>-->
+<!--                        <div class="progress-text">-->
+<!--                            <div class="row">-->
+<!--                                <div class="col-7">Time Management </div>-->
+<!--                                <div class="col-5 text-right">60%</div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="custom-progress progress">-->
+<!--                            <div role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:60%" class="animated custom-bar progress-bar slideInLeft bg-green"></div>-->
+<!--                        </div>-->
+<!--                        <div class="progress-text">-->
+<!--                            <div class="row">-->
+<!--                                <div class="col-7">Excellent Communication</div>-->
+<!--                                <div class="col-5 text-right">80%</div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="custom-progress progress">-->
+<!--                            <div role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:80%" class="animated custom-bar progress-bar slideInLeft bg-yellow"></div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            <div class="col-md-12">-->
+
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+        </div>
+    </div>
 </div>
 {% endblock %}
