@@ -125,7 +125,8 @@ class Vakil(models.Model):
     jpublish.short_description = "تاریخ انقضا"
 
     def thumbnail_tag(self):
-        return format_html("<img width=100 height=75 style='border-radius: 5px;' src='{}'>".format(self.thumbnail.url))
+        if self.thumbnail:
+            return format_html("<img width=100 height=75 style='border-radius: 5px;' src='{}'>".format(self.thumbnail.url))
     thumbnail_tag.short_description = "عکس"
 
 class Riyasat(models.Model):

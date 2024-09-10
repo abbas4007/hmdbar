@@ -9,11 +9,10 @@ from django.views import View
 # Create your views here.
 
 class ArticleList(View):
+	paginate_by = 4
 	def get(self,request):
 		article = Article.objects.published()
 		heyatmodireh = Riyasat.objects.all()
-
-		paginate_by = 5
 		return render(request,'home/index.html',{'article':article,'heyatmodireh':heyatmodireh})
 
 
