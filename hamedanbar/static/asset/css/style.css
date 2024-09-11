@@ -421,7 +421,7 @@ a:hover {
 }
 
 #hero {
-  background: url("static/asset/img/hero-bg.jpg") top center;
+  background-image: url("static/asset/img/hero-bg.jpg") top center;
 }
 
 #hero:before {
