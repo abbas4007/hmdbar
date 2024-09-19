@@ -26,9 +26,12 @@
 {% endblock %}
 <head>
     <title>{% block title %}{% endblock %}</title>
+{% block extra_headersss %}
 
         {% include 'inc/navbar.html' %}
         {% include 'inc/messages.html' %}
+    {% endblock %}
+
 </head>
 <body>
 

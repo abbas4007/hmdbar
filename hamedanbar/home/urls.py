@@ -10,6 +10,7 @@ from .views import (
 	VakilPage,
 	ComisionView,
 	ComisionDetailView,
+	Contact,
 	# UpdateImageView,
 )
 
@@ -29,5 +30,6 @@ urlpatterns = [
 	path('category/<slug:slug>/page/<int:page>', CategoryList.as_view(), name="category"),
 	path('search/', SearchList.as_view(), name="search"),
 	path('search/page/<int:page>', SearchList.as_view(), name="search"),
+	path('contact', Contact.as_view(), name="contact"),
 	# path('admin/home/vakil/update_image/UpdateImageView', UpdateImageView.as_view(), name='vakil_update_image'),
 ]

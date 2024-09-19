@@ -2,7 +2,7 @@ from django.views.generic import ListView, DetailView
 from django.contrib import admin
 from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404, redirect
-from .forms import VakilSearchForm
+from .forms import VakilSearchForm,AdminContactForm
 from .models import Article, Category, Vakil, Riyasat, Comision, ComisionVarzeshi, ArticleImage
 from django.db.models import Q
 from django.views import View
@@ -102,3 +102,10 @@ class UpdateImageView(View):
 			return model_admin.update_image(request, Vakil.objects.filter(pk__in = selected_action))
 
 		return redirect('/')
+
+
+class Contact(View):
+
+	form_class = AdminContactForm
+	def get(self,request):
+		return render(request,'home/contact.html',{'form':self.form_class})

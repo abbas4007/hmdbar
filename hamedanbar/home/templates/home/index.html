@@ -43,7 +43,7 @@
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">صفحه اصلی</a></li>
           <li><a class="nav-link scrollto" href="#services">اخبار</a></li>
-          <li><a class="nav-link scrollto " href="#portfolio">جستجوی وکیل</a></li>
+          <li><a class="nav-link scrollto " href="{% url 'home:vokala' %}">جستجوی وکیل</a></li>
           <li><a class="nav-link scrollto" href="#team">هیات مدیره</a></li>
           <li class="dropdown"><a href="#"><span>کمیسیون ها</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
@@ -94,7 +94,7 @@
         <div class="col-xl-2 col-md-4">
           <div class="icon-box">
             <div class="icon"><i class="bi bi-laptop"></i></div>
-            <h4 class="title"><a href=""  style="font-family: 'B Titr';">اتوماسیون</a></h4>
+            <h4 class="title"><a href="https://automation.hamedanbar.ir/login.aspx"  style="font-family: 'B Titr';">اتوماسیون</a></h4>
             <p class="description" style="font-family: 'B Arshia  '; color: #abe1f8">ورود به اتوماسیون تخصصی وکلا  </p>
           </div>
         </div>
@@ -102,7 +102,7 @@
         <div class="col-xl-2 col-md-4">
           <div class="icon-box">
             <div class="icon"><i class="bi bi-envelope"></i></div>
-            <h4 class="title"><a href=""   style="font-family: 'B Titr';">ارتباط با  ریاست</a></h4>
+            <h4 class="title"><a href="{% url 'home:contact' %}"   style="font-family: 'B Titr';">ارتباط با  ریاست</a></h4>
             <p class="description" style="font-family: 'B Arshia  '; color: #abe1f8">صندوق انتقادات و پیشنهادات</p>          </div>
           </div>
         </div>

@@ -1,113 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
-
+{% block extra_headersss %}
+{% endblock %}
 {% block content%}
 
-<br>
-<br>
-<br>
-
-<!--  <div class="container" style="background-color: #0d6efd; height: 200px" >-->
-<!--       <div class="row" >-->
-
-<!--           <h1 class="mt-4 p-5" style="margin-right: 500px;     font-family: Sahel!important;">{{vakil.name}} {{vakil.lastname}}</h1>-->
-<!--  </div>-->
-<!--  </div>-->
-<!-- <br>-->
-<!-- <br>-->
-<!-- <br>-->
-<!-- <div class="container">-->
-<!-- <div class="row">-->
-<!--<div class="col-md-4">-->
-
-<!--   <img src="{{vakil.thumbnail.url}}" class="img-fluid" alt="" style="height: 555px;">-->
-
-<!--</div>-->
-
-<!-- <div class="col-md-8">-->
-<!-- <div class="container p-4"  >-->
-
-<!--     <div class="row ">-->
-
-<!--  <div class="col-sm-3" >-->
-
-<!--   <div class="card" style="width:200px">-->
-<!--  <img class="card-img-top" src="{% static 'calender.png' %}" alt="Card image">-->
-<!--  <div class="card-body">-->
-<!--    <h4 class="card-title">شماره پروانه وکالت</h4>-->
-<!--    <p class="card-text">{{vakil.code}}</p>-->
-<!--  </div>-->
-<!--</div>-->
-<!--  </div>-->
-<!--  <div class="col-sm-3" >-->
-
-<!-- <div class="card" style="width:200px">-->
-<!--  <img class="card-img-top" src="{% static 'expire.png' %}" alt="Card image">-->
-<!--  <div class="card-body">-->
-<!--    <h4 class="card-title">شماره پروانه وکالت-->
-<!--</h4>-->
-<!--    <p class="card-text">{{vakil.code}}</p>-->
-<!--  </div>-->
-<!--</div>-->
-<!--           </div>-->
-<!--  <div class="col-sm-3" >-->
-
-<!--        <div class="card" style="width:200px">-->
-<!--  <img class="card-img-top" src="{% static 'phone.png' %}" alt="Card image">-->
-<!--  <div class="card-body">-->
-<!--    <h4 class="card-title">شماره موبایل-->
-<!--</h4>-->
-<!--    <p class="card-text">{{vakil.code}}</p>-->
-<!--  </div>-->
-<!--</div>-->
-<!--           </div>-->
-
-<!--</div>-->
-<!--     </div>-->
-
-
-<!--     <div class="row p-4" >-->
-
-<!--  <div class="col-sm-3" >-->
-
-<!--   <div class="card" style="width:200px">-->
-<!--  <img class="card-img-top" src="{% static 'calender.png' %}" alt="Card image">-->
-<!--  <div class="card-body">-->
-<!--    <h4 class="card-title">شماره پروانه وکالت</h4>-->
-<!--    <p class="card-text">{{vakil.code}}</p>-->
-<!--  </div>-->
-<!--</div>-->
-<!--  </div>-->
-
-<!--  <div class="col-sm-3" >-->
-
-<!-- <div class="card" style="width:200px">-->
-<!--  <img class="card-img-top" src="{% static 'expire.png' %}" alt="Card image">-->
-<!--  <div class="card-body">-->
-<!--    <h4 class="card-title">شماره پروانه وکالت-->
-<!--</h4>-->
-<!--    <p class="card-text">{{vakil.code}}</p>-->
-<!--  </div>-->
-<!--</div>-->
-<!--           </div>-->
-<!--  <div class="col-sm-3" >-->
-
-<!--        <div class="card" style="width:200px">-->
-<!--  <img class="card-img-top" src="{% static 'building.png' %}" alt="Card image">-->
-<!--  <div class="card-body">-->
-<!--    <h4 class="card-title">شماره موبایل-->
-<!--</h4>-->
-<!--    <p class="card-text">{{vakil.code}}</p>-->
-<!--  </div>-->
-<!--</div>-->
-<!--           </div>-->
-
-<!--</div>-->
-<!--     </div>-->
-<!--</div>-->
-<!--</div>-->
 <style>
-    ed, to get the result that you can see in the preview selection
 
 body{
     font-size: 16px;
@@ -349,167 +246,117 @@ a.text-lightred:hover {
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
 <div class="container">
-    <div class="team-single">
-        <div class="row">
-             <div  style="width: 1190px;height: 300px;margin-top: 50px;">
-  <img  src="{% static 'banner.jpg'  %}"  style="width: 1190px;height: 294px" alt="Card image">
+  <img  src="{% static 'banner.jpg'  %}"   alt="Card image">
 
-    </div>
-            <div class="col-lg-4 col-md-5 xs-margin-30px-bottom">
-                <div class="team-single-img">
-            <img src="{{ vakil.thumbnail.url }}" class="img-fluid" alt="">
+
+    <div class="container mt-4">
+            <div class="row justify-content-center">
+                <div class="col-lg-4">
+                    <img src="https://hamedanbar.ir/images/attorneys/739-30745.jpg" class="img-fluid border-radius" alt="سعید آئینه وند">
                 </div>
-                <div class="bg-light-gray padding-30px-all md-padding-25px-all sm-padding-20px-all text-center">
-                    <h4 class="margin-10px-bottom font-size24 md-font-size22 sm-font-size20 font-weight-600">Class Teacher</h4>
-<!--                    <p class="sm-width-95 sm-margin-auto">We are proud of child student. We teaching great activities and best program for your kids.</p>-->
-                    <div class="margin-20px-top team-single-icons">
-                        <ul class="no-margin">
-                            <li><a href="javascript:void(0)"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="javascript:void(0)"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="javascript:void(0)"><i class="fab fa-google-plus-g"></i></a></li>
-                            <li><a href="javascript:void(0)"><i class="fab fa-instagram"></i></a></li>
-                        </ul>
+                <div class="col-lg-8">
+                    <div class="feature-images-wrapper">
+                        <div class="container">
+                            <div class="feature-images__serven">
+                                <div class="row">
+                                    <div class="col-xs-6 col-lg-4 col-md-6">
+                                        <div class="ht-box-images style-07">
+                                            <div class="image-box-wrap">
+                                                <div class="box-image">
+                                                    <div class="default-image">
+                                                        <img class="img-fulid" src="https://hamedanbar.ir/resources/img/icons/attorney/number.png">
+                                                    </div>
+                                                </div>
+                                                <div class="content">
+                                                    <h6 class="heading">شماره پروانه وکالت</h6>
+                                                    <h6 class="text">{{vakil.code}}</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6 col-lg-4 col-md-6">
+                                        <div class="ht-box-images style-07">
+                                            <div class="image-box-wrap">
+                                                <div class="box-image">
+                                                    <div class="default-image">
+                                                        <img class="img-fulid" src="https://hamedanbar.ir/resources/img/icons/attorney/mobile.png" alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="content">
+                                                    <h6 class="heading">تلفن همراه</h6>
+                                                    <h6 class="text"><a href="tel:09188126343">09188126343</a></h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="ht-box-images style-07">
+                                            <div class="image-box-wrap">
+                                                <div class="box-image">
+                                                    <div class="default-image">
+                                                        <img class="img-fulid" src="https://hamedanbar.ir/resources/img/icons/attorney/phone.png" alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="content">
+                                                    <h6 class="heading">تلفن ثابت</h6>
+                                                    <h6 class="text"><a href="tel:08138261253">08138261253</a></h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="ht-box-images style-07">
+                                            <div class="image-box-wrap">
+                                                <div class="box-image">
+                                                    <div class="default-image">
+                                                        <img class="img-fulid" src="https://hamedanbar.ir/resources/img/icons/attorney/city.png" alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="content">
+                                                    <h6 class="heading">شهرستان محل اشتغال</h6>
+                                                    <h6 class="text">{{vakil.city}}</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="ht-box-images style-07">
+                                            <div class="image-box-wrap">
+                                                <div class="box-image">
+                                                    <div class="default-image">
+                                                        <img class="img-fulid" src="https://hamedanbar.ir/resources/img/icons/attorney/date.png" alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="content">
+                                                    <h6 class="heading">انقضاء پروانه وکالت</h6>
+                                                    <h6 class="text">1404/08/30</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="ht-box-images style-07">
+                                            <div class="image-box-wrap">
+                                                <div class="box-image">
+                                                    <div class="default-image">
+                                                        <img class="img-fulid" src="https://hamedanbar.ir/resources/img/icons/attorney/location.png" alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="content">
+                                                    <h6 class="heading">آدرس</h6>
+                                                    <h6 class="text">همدان- خیابان بوعلی - کوچه شهید لعلی- پ 27- ساختمان دادگستر</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <div class="col-lg-8 col-md-7">
-                <div class="team-single-text padding-50px-left sm-no-padding-left">
-                    <h4 class="font-size38 sm-font-size32 xs-font-size30">{{vakil.name}} {{vakil.lastname}}</h4>
-<!--                    <p class="no-margin-bottom">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum voluptatem.</p>-->
-                    <div class="contact-info-section margin-40px-tb">
-     <div class="row ">
-
-  <div class="col-sm-3" >
-
-   <div class="card" style="width:200px">
-  <img class="card-img-top" src="{% static 'calender.png' %}" alt="Card image">
-  <div class="card-body">
-    <h4 class="card-title">شماره پروانه وکالت</h4>
-    <p class="card-text">{{vakil.code}}</p>
-  </div>
-</div>
-  </div>
-  <div class="col-sm-3" >
-
- <div class="card" style="width:200px">
-  <img class="card-img-top" src="{% static 'expire.png' %}" alt="Card image">
-  <div class="card-body">
-    <h4 class="card-title">شماره پروانه وکالت
-</h4>
-    <p class="card-text">{{vakil.code}}</p>
-  </div>
-</div>
-           </div>
-  <div class="col-sm-3" >
-
-        <div class="card" style="width:200px">
-  <img class="card-img-top" src="{% static 'phone.png' %}" alt="Card image">
-  <div class="card-body">
-    <h4 class="card-title">شماره موبایل
-</h4>
-    <p class="card-text">{{vakil.code}}</p>
-  </div>
-</div>
-           </div>
-
-</div>
-     </div>
-
-
-     <div class="row p-4" >
-
-  <div class="col-sm-3" >
-
-   <div class="card" style="width:200px">
-  <img class="card-img-top" src="{% static 'calender.png' %}" alt="Card image">
-  <div class="card-body">
-    <h4 class="card-title">شماره پروانه وکالت</h4>
-    <p class="card-text">{{vakil.code}}</p>
-  </div>
-</div>
-  </div>
-
-  <div class="col-sm-3" >
-
- <div class="card" style="width:200px">
-  <img class="card-img-top" src="{% static 'expire.png' %}" alt="Card image">
-  <div class="card-body">
-    <h4 class="card-title">شماره پروانه وکالت
-</h4>
-    <p class="card-text">{{vakil.code}}</p>
-  </div>
-</div>
-           </div>
-  <div class="col-sm-3" >
-
-        <div class="card" style="width:200px">
-  <img class="card-img-top" src="{% static 'building.png' %}" alt="Card image">
-  <div class="card-body">
-    <h4 class="card-title">شماره موبایل
-</h4>
-    <p class="card-text">{{vakil.code}}</p>
-  </div>
-</div>
-           </div>
-
-</div>
-     </div>
-
-
-                    </div>
-
-<!--                    <h5 class="font-size24 sm-font-size22 xs-font-size20">Professional Skills</h5>-->
-
-<!--                    <div class="sm-no-margin">-->
-<!--                        <div class="progress-text">-->
-<!--                            <div class="row">-->
-<!--                                <div class="col-7">Positive Behaviors</div>-->
-<!--                                <div class="col-5 text-right">40%</div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="custom-progress progress">-->
-<!--                            <div role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:40%" class="animated custom-bar progress-bar slideInLeft bg-sky"></div>-->
-<!--                        </div>-->
-<!--                        <div class="progress-text">-->
-<!--                            <div class="row">-->
-<!--                                <div class="col-7">Teamworking Abilities</div>-->
-<!--                                <div class="col-5 text-right">50%</div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="custom-progress progress">-->
-<!--                            <div role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:50%" class="animated custom-bar progress-bar slideInLeft bg-orange"></div>-->
-<!--                        </div>-->
-<!--                        <div class="progress-text">-->
-<!--                            <div class="row">-->
-<!--                                <div class="col-7">Time Management </div>-->
-<!--                                <div class="col-5 text-right">60%</div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="custom-progress progress">-->
-<!--                            <div role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:60%" class="animated custom-bar progress-bar slideInLeft bg-green"></div>-->
-<!--                        </div>-->
-<!--                        <div class="progress-text">-->
-<!--                            <div class="row">-->
-<!--                                <div class="col-7">Excellent Communication</div>-->
-<!--                                <div class="col-5 text-right">80%</div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="custom-progress progress">-->
-<!--                            <div role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:80%" class="animated custom-bar progress-bar slideInLeft bg-yellow"></div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-
-<!--                </div>-->
-<!--            </div>-->
-
-<!--            <div class="col-md-12">-->
-
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
         </div>
-    </div>
-</div>
+        </div>
+
+        </div>
 {% endblock %}
