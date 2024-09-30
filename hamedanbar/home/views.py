@@ -9,11 +9,13 @@ from django.views import View
 # Create your views here.
 
 class ArticleList(View):
-	paginate_by = 4
 	def get(self,request):
 		article = Article.objects.published()
 		heyatmodireh = Riyasat.objects.all()
-		return render(request,'home/index.html',{'article':article,'heyatmodireh':heyatmodireh})
+		paginator = Paginator(article, 3)  # Show 25 contacts per page.
+		page_number = request.GET.get("page")
+		page_obj = paginator.get_page(page_number)
+		return render(request,'home/index.html',{'article':article,'heyatmodireh':heyatmodireh,"page_obj": page_obj})
 
 
 class ArticleDetail(View):
@@ -25,7 +27,6 @@ class ArticleDetail(View):
 
 class VokalaView(View):
 	form_class = VakilSearchForm
-	paginate_by = 2
 	def get(self,request):
 		vakils = Vakil.objects.all()
 		if request.GET.get('search') :
@@ -109,3 +110,5 @@ class Contact(View):
 	form_class = AdminContactForm
 	def get(self,request):
 		return render(request,'home/contact.html',{'form':self.form_class})
+
+

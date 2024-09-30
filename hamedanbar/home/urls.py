@@ -11,7 +11,6 @@ from .views import (
 	ComisionView,
 	ComisionDetailView,
 	Contact,
-	# UpdateImageView,
 )
 
 app_name = "home"
@@ -23,7 +22,7 @@ urlpatterns = [
 	path('city/<slug:city>', VakilCity.as_view(), name="vokala_city"),
 	path('comision/', ComisionView.as_view(), name="comision"),
 	path('comision/varzeshi', ComisionDetailView.as_view(), name="comision_detail"),
-	# path('hamedan/', VakilHamedan.as_view(), name="hamedan"),
+	# path('riyasat/', RiyastView.as_view(), name="riyasat"),
 	path('preview/<int:pk>', ArticlePreview.as_view(), name="preview"),
 	path('vakil/<int:id>', VakilPage.as_view(), name="vakil"),
 	path('category/<slug:slug>', CategoryList.as_view(), name="category"),

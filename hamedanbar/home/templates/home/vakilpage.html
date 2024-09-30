@@ -1,11 +1,136 @@
-{% extends 'base.html' %}
 {% load static %}
-{% block extra_headersss %}
-{% endblock %}
-{% block content%}
+<head>
+    <style>
 
-<style>
+    /* FontAwesome for working BootSnippet :> */
 
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+#team {
+    background: #eee !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: #1363a5;
+    border-color: #105d8d;
+    box-shadow: none;
+    outline: none;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #1268a5;
+    border-color: #1d76cf;
+}
+
+section {
+    padding: 60px 0;
+}
+
+section .section-title {
+    text-align: center;
+    color: #076eb6;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+
+#team .card {
+    border: none;
+    background: #ffffff;
+}
+
+.image-flip:hover .backside,
+.image-flip.hover .backside {
+    -webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    -o-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+    border-radius: .25rem;
+}
+
+.image-flip:hover .frontside,
+.image-flip.hover .frontside {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+.mainflip {
+    -webkit-transition: 1s;
+    -webkit-transform-style: preserve-3d;
+    -ms-transition: 1s;
+    -moz-transition: 1s;
+    -moz-transform: perspective(1000px);
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transition: 1s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+.frontside {
+    position: relative;
+    -webkit-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    z-index: 2;
+    margin-bottom: 30px;
+}
+
+.backside {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: white;
+    -webkit-transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+    -o-transform: rotateY(-180deg);
+    -ms-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+    -webkit-box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+    -moz-box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+    box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+}
+
+.frontside,
+.backside {
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transition: 1s;
+    -webkit-transform-style: preserve-3d;
+    -moz-transition: 1s;
+    -moz-transform-style: preserve-3d;
+    -o-transition: 1s;
+    -o-transform-style: preserve-3d;
+    -ms-transition: 1s;
+    -ms-transform-style: preserve-3d;
+    transition: 1s;
+    transform-style: preserve-3d;
+}
+
+.frontside .card,
+.backside .card {
+    min-height: 312px;
+}
+
+.backside .card a {
+    font-size: 18px;
+    color: #007b5e !important;
+}
+
+.frontside .card .card-title,
+.backside .card .card-title {
+    color: #007b5e !important;
+}
+
+.frontside .card .card-body img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
 body{
     font-size: 16px;
     color: #6f6f6f;
@@ -244,15 +369,42 @@ a.text-lightred:hover {
     background-color: #ff5722
 }
 </style>
+<meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'asset/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'aasset/img/apple-touch-icon.png' %}"rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'asset/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'asset/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'asset/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'asset/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'asset/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'asset/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static 'asset/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <link href="{% static 'asset/css/style.css' %}" rel="stylesheet">
+</head>
+
+<br>
+{% block content%}
+
+
+
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
-<div class="container">
+<div class="container " style="direction: rtl">
   <img  src="{% static 'banner.jpg'  %}"   alt="Card image">
 
 
-    <div class="container mt-4">
+    <div class="container mt-4 ">
             <div class="row justify-content-center">
-                <div class="col-lg-4">
-                    <img src="https://hamedanbar.ir/images/attorneys/739-30745.jpg" class="img-fluid border-radius" alt="سعید آئینه وند">
+                <div class="col-md-4 col-lg-4">
+                    <img src="{{vakil.thumbnail.url}}" class="img-fluid border-radius ml-5" >
                 </div>
                 <div class="col-lg-8">
                     <div class="feature-images-wrapper">
@@ -264,11 +416,11 @@ a.text-lightred:hover {
                                             <div class="image-box-wrap">
                                                 <div class="box-image">
                                                     <div class="default-image">
-                                                        <img class="img-fulid" src="https://hamedanbar.ir/resources/img/icons/attorney/number.png">
+                                                        <img class="img-fulid" src="{% static 'numbers.png' %} " width="50px">
                                                     </div>
                                                 </div>
                                                 <div class="content">
-                                                    <h6 class="heading">شماره پروانه وکالت</h6>
+                                                    <h6 class="heading"> شماره پروانه </h6>
                                                     <h6 class="text">{{vakil.code}}</h6>
                                                 </div>
                                             </div>
@@ -279,7 +431,7 @@ a.text-lightred:hover {
                                             <div class="image-box-wrap">
                                                 <div class="box-image">
                                                     <div class="default-image">
-                                                        <img class="img-fulid" src="https://hamedanbar.ir/resources/img/icons/attorney/mobile.png" alt="">
+                                                        <img class="img-fulid" src="{% static 'phone.png' %} " width="50px">
                                                     </div>
                                                 </div>
                                                 <div class="content">
@@ -294,7 +446,7 @@ a.text-lightred:hover {
                                             <div class="image-box-wrap">
                                                 <div class="box-image">
                                                     <div class="default-image">
-                                                        <img class="img-fulid" src="https://hamedanbar.ir/resources/img/icons/attorney/phone.png" alt="">
+                                                        <img class="img-fulid" src="{% static 'telephone.png' %} " width="50px">
                                                     </div>
                                                 </div>
                                                 <div class="content">
@@ -309,7 +461,7 @@ a.text-lightred:hover {
                                             <div class="image-box-wrap">
                                                 <div class="box-image">
                                                     <div class="default-image">
-                                                        <img class="img-fulid" src="https://hamedanbar.ir/resources/img/icons/attorney/city.png" alt="">
+                                                        <img class="img-fulid" src="{% static 'loction.png' %} " width="50px">
                                                     </div>
                                                 </div>
                                                 <div class="content">
@@ -324,7 +476,7 @@ a.text-lightred:hover {
                                             <div class="image-box-wrap">
                                                 <div class="box-image">
                                                     <div class="default-image">
-                                                        <img class="img-fulid" src="https://hamedanbar.ir/resources/img/icons/attorney/date.png" alt="">
+                                                        <img class="img-fulid" src="{% static 'expire.png' %} " width="50px">
                                                     </div>
                                                 </div>
                                                 <div class="content">
@@ -339,12 +491,12 @@ a.text-lightred:hover {
                                             <div class="image-box-wrap">
                                                 <div class="box-image">
                                                     <div class="default-image">
-                                                        <img class="img-fulid" src="https://hamedanbar.ir/resources/img/icons/attorney/location.png" alt="">
+                                                        <img class="img-fulid" src="{% static 'location.png' %} " width="50px">
                                                     </div>
                                                 </div>
                                                 <div class="content">
                                                     <h6 class="heading">آدرس</h6>
-                                                    <h6 class="text">همدان- خیابان بوعلی - کوچه شهید لعلی- پ 27- ساختمان دادگستر</h6>
+                                                    <h6 class="text">{{vakil.address}}</h6>
                                                 </div>
                                             </div>
                                         </div>

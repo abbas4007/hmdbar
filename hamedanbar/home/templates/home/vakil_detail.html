@@ -1,7 +1,7 @@
-{% extends 'base.html' %}
 {% load static %}
-{% block extra_headersss %}
-<style>
+<html>
+<head>
+    <style>
 
     /* FontAwesome for working BootSnippet :> */
 
@@ -133,9 +133,27 @@ section .section-title {
     border-radius: 50%;
 }
 </style>
-{% endblock %}
+<meta content="" name="description">
+  <meta content="" name="keywords">
 
-{% block content%}
+  <!-- Favicons -->
+  <link href="{% static 'asset/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'aasset/img/apple-touch-icon.png' %}"rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'asset/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'asset/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'asset/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'asset/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'asset/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'asset/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static 'asset/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <link href="{% static 'asset/css/style.css' %}" rel="stylesheet">
+</head>
+
 <br>
 
 <div class="container-fluid">
@@ -147,10 +165,7 @@ section .section-title {
 <section id="team" class="team">
       <div class="container">
 
-        <div class="section-title">
-          <h2 style="font-family: 'B Titr';">وکلا {{i.city}} </h2>
 
-        </div>
 
         <div class="row">
           {% for i in page_obj %}
@@ -190,75 +205,8 @@ section .section-title {
 
 
 </section>
-        </div>
-
-      </div>
-    </section>
 </div>
-  <footer id="footer">
-    <div class="footer-top">
-      <div class="container">
-        <div class="row" style="background-image: url("static/asset/img/hero-bg.jpg")">
-
-
-          <div class="col-lg-3 col-md-6">
-            <div class="footer-info">
-              <h3>کانون وکلای دادگستری همدان<span>.</span></h3>
-              <p style="font-family: 'B Titr'">کانون وکلای دادگستری قدیمی‌ترین سازمان مردم نهاد ایرانی است که به موجب لایحه استقلال کانون وکلا در سال ۱۳۳۱ به عنوان نهادی با شخصیت حقوقی و مستقل به وجود آمد، هرچند پیش از آن هم موجودیت داشت. کانون وکلای دادگستری ایران در سال ۱۳۲۹ نیز به عضویت کانون وکلای بین‌المللی (IBA) درآمده است. هیئت مدیره، رئیس، دادگاه انتظامی وکلا و دادسرای انتظامی وکلا از نهادهای هر کانون هستند.
-               <br>
-               <br>
-                <strong>تلفن تماس :</strong>081-38282028-29<br>
-                <strong>سامانه پیامکی :</strong> 10008138282029<br>
-              </p>
-              <div class="social-links mt-3">
-                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-2 col-md-6 footer-links">
-            <h4>پیوندها</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">کانون های وکلای دادگستری کشور</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">ورود وکلا به پنل پست الکترونیکی</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">اپلیکیشن کانون های وکلا</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">مصوبات هیات مدیره</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">پیشنهادات و انتقادات</a></li>
-            </ul>
-          </div>
 
 
 
-         <div class="col-lg-3 col-md-6 col-sm-6 col-6 footer-widget">
-                  <ul class="footer-widget__list circle-list">
-                        <li><a referrerpolicy="origin" target="_blank" href="https://trustseal.enamad.ir/?id=311423&amp;Code=W2AAql1kCj1PA18yDfSl"><img referrerpolicy="origin" src="https://Trustseal.eNamad.ir/logo.aspx?id=311423&amp;Code=W2AAql1kCj1PA18yDfSl" alt="" style="cursor:pointer" id="W2AAql1kCj1PA18yDfSl"></a>
-                        </li>
-                    </ul>                        <li><a referrerpolicy="origin" target="_blank" href="https://trustseal.enamad.ir/?id=311423&amp;Code=W2AAql1kCj1PA18yDfSl"><img referrerpolicy="origin" src="https://Trustseal.eNamad.ir/logo.aspx?id=311423&amp;Code=W2AAql1kCj1PA18yDfSl" alt="" style="cursor:pointer" id="W2AAql1kCj1PA18yDfSl"></a>
-         </li>
-                    </ul>
-                </div>
-
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="copyright">
-        &copy; Copyright <strong><span>Gp</span></strong>. All Rights Reserved
-      </div>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/gp-free-multipurpose-html-bootstrap-template/ -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      </div>
-    </div>
-  </footer><!-- End Footer -->
-
-
-{% endblock %}
+</html>

@@ -143,13 +143,13 @@
           <h2>اخبار</h2>
         </div>
 
-<div class="row">
-          {% for i in article %}
-          <div class="card col-md-3 g-2 mr-2">
+<div class="row " style="margin-right: 170px;">
+          {% for i in page_obj %}
+          <div class="card col-md-3 g-2 shadow mx-1 btn " >
     <img class="card-img-top" src="{{i.thumbnail.url}}" alt="Card image cap" style="width: 100%; height: 150px">
     <div class="card-body">
      <a href="{% url 'home:detail' i.slug %}"> <h5 class="card-title" style="font-family: 'B Titr'; font-weight: bold;font-size: 16px;">{{i.title}}</h5></a>
-      <p class="card-text" style="align-content: center; font-family: 'B Nazanin'; font-size: 16px;">{{i.description}}</p>
+      <p class="card-text" style="align-content: center; font-family: 'B Nazanin'; font-size: 16px;">{{i.description|truncatewords:30}}</p>
       <div class="card-footer">
       <small class="text-muted">Last updated 3 mins ago</small>
     </div>
@@ -157,6 +157,26 @@
   </div>
     {% endfor %}
       </div>
+
+<nav class="mt-4" aria-label="Page navigation example ">
+
+  <ul class="pagination justify-content-center">
+    {% if page_obj.has_previous %}
+          <li class="page-item"> <a href="?page=1">&laquo; اولین</a></li>
+           <li class="page-item" tabindex="-1" aria-disabled="true"> <a href="?page={{ page_obj.previous_page_number }}">قبلی</a></li>
+        {% endif %}
+
+
+
+        {% if page_obj.has_next %}
+    <li class="page-item">  <a class="page-link" href="?page={{ page_obj.next_page_number }}">بعدی</a></li>
+     <li class="page-item"><a class="page-link"  href="?page=2">2</a></li>
+    <li class="page-item"><a class="page-link" href="?page=3">3</a></li>
+    <li class="page-item">    <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">قبلی &raquo;</a></li>
+
+
+        {% endif %}
+    </ul>
     </section>
       </div>
     </section>
@@ -205,13 +225,13 @@
 
         </div>
 
-        <div class="row">
+        <div class="row " >
           {% for i in heyatmodireh %}
-          <div class="card col-md-3 g-2 mr-2">
-    <img class="card-img-top" src="{% if i.vakil.thumbnail %}{{i.vakil.thumbnail.url}}{% else %}#{% endif %}" alt="Card image cap" style="width: 100%; height: 150px">
+          <div class="card col-md-3 g-2 mr-2 shadow mx-1 btn " >
+    <img class="card-img-top rounded-circle p-1" src="{% if i.vakil.thumbnail %}{{i.vakil.thumbnail.url}}{% else %}#{% endif %}" alt="Card image cap" style="width: 100%; height: 130px">
     <div class="card-body">
       {{i.role}}
-      <p class="card-text" style="align-content: center; font-family: 'B Nazanin'; font-size: 16px;">{{i.vakil.name}}  {{i.vakil.lastname}}</p>
+     <a href="{% url 'home:vakil' i.id %}"> <p class="card-text" style="align-content: center; font-family: 'B Nazanin'; font-size: 16px;">{{i.vakil.name}}  {{i.vakil.lastname}}</p></a>
       <div class="card-footer">
       <small class="text-muted">{{i.role}}</small>
     </div>
@@ -232,19 +252,16 @@
       </div>
     </section>
       </div>
+
+
   </main>
 </body>
-    <section id="testimonials" class="testimonials">
 
-      <div class="container mr-5" style="align-items: center; margin-right: 100px;" data-aos="zoom-in">
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4633.700357069715!2d48.514082359384766!3d34.792833464831936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ff1ece11fe48d3d%3A0xed1d4fff92db4531!2z2qnYp9mG2YjZhiDZiNqp2YTYp9uMINiv2KfYr9qv2LPYqtix24wg2KfYs9iq2KfZhiDZh9mF2K_Yp9mG!5e0!3m2!1sen!2s!4v1720593822023!5m2!1sen!2s" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="mr-5"></iframe>
- </div>
-    </section>
   <!-- ======= Footer ======= -->
-  <footer id="footer">
+<footer id="footer" style="  background-image: url("static/asset/img/hero-bg.jpg") top center; ">
     <div class="footer-top">
       <div class="container">
-        <div class="row" style="background-image: url("static/asset/img/hero-bg.jpg")">
+        <div class="row">
 
 
           <div class="col-lg-3 col-md-6">
@@ -279,15 +296,12 @@
 
 
 
-         <div class="col-lg-3 col-md-6 col-sm-6 col-6 footer-widget">
-                  <ul class="footer-widget__list circle-list">
-                        <li><a referrerpolicy="origin" target="_blank" href="https://trustseal.enamad.ir/?id=311423&amp;Code=W2AAql1kCj1PA18yDfSl"><img referrerpolicy="origin" src="https://Trustseal.eNamad.ir/logo.aspx?id=311423&amp;Code=W2AAql1kCj1PA18yDfSl" alt="" style="cursor:pointer" id="W2AAql1kCj1PA18yDfSl"></a>
-                        </li>
-                    </ul>                        <li><a referrerpolicy="origin" target="_blank" href="https://trustseal.enamad.ir/?id=311423&amp;Code=W2AAql1kCj1PA18yDfSl"><img referrerpolicy="origin" src="https://Trustseal.eNamad.ir/logo.aspx?id=311423&amp;Code=W2AAql1kCj1PA18yDfSl" alt="" style="cursor:pointer" id="W2AAql1kCj1PA18yDfSl"></a>
-         </li>
-                    </ul>
-                </div>
+          <section id="testimonials" style="width: 500px;height: 500px; margin-right:50px ;">
 
+            <div class="container " style="align-items: center; margin-right: 10px;" data-aos="zoom-in">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4633.700357069715!2d48.514082359384766!3d34.792833464831936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ff1ece11fe48d3d%3A0xed1d4fff92db4531!2z2qnYp9mG2YjZhiDZiNqp2YTYp9uMINiv2KfYr9qv2LPYqtix24wg2KfYs9iq2KfZhiDZh9mF2K_Yp9mG!5e0!3m2!1sen!2s!4v1720593822023!5m2!1sen!2s" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="mr-5"></iframe>
+       </div>
+          </section>
         </div>
       </div>
     </div>
@@ -297,15 +311,11 @@
         &copy; Copyright <strong><span>Gp</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/gp-free-multipurpose-html-bootstrap-template/ -->
+
         Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
       </div>
     </div>
   </footer><!-- End Footer -->
-
   <div id="preloader"></div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
