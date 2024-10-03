@@ -2,20 +2,27 @@ from django.views.generic import ListView, DetailView
 from django.contrib import admin
 from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404, redirect
-from .forms import VakilSearchForm,AdminContactForm
+from .forms import VakilSearchForm, AdminContactForm, ArticleSearchForm
 from .models import Article, Category, Vakil, Riyasat, Comision, ComisionVarzeshi, ArticleImage
 from django.db.models import Q
 from django.views import View
 # Create your views here.
-
 class ArticleList(View):
+	form_class = ArticleSearchForm
+
 	def get(self,request):
 		article = Article.objects.published()
+		if 'search' in  request.GET:
+			form = ArticleSearchForm(request.GET)
+			if form.is_valid():
+				cd = form.cleaned_data('search')
+				article = article.filter(Q(title__icontains=cd) |Q(description__icontains=cd))
 		heyatmodireh = Riyasat.objects.all()
 		paginator = Paginator(article, 3)  # Show 25 contacts per page.
 		page_number = request.GET.get("page")
 		page_obj = paginator.get_page(page_number)
-		return render(request,'home/index.html',{'article':article,'heyatmodireh':heyatmodireh,"page_obj": page_obj})
+
+		return render(request,'home/index.html',{'article':article,'heyatmodireh':heyatmodireh,"page_obj": page_obj,'form':self.form_class})
 
 
 class ArticleDetail(View):

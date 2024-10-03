@@ -403,7 +403,7 @@ a:hover {
 .navbar-mobile .dropdown ul a:hover,
 .navbar-mobile .dropdown ul .active:hover,
 .navbar-mobile .dropdown ul li:hover>a {
-  background-color: #0876c2;
+  background-color: #b5d8f1;
 }
 
 .navbar-mobile .dropdown>.dropdown-active {
@@ -1465,7 +1465,7 @@ section {
 #footer .footer-top .social-links a {
   font-size: 18px;
   display: inline-block;
-  background: #292929;
+  background: #afaeae;
   color: #fff;
   line-height: 1;
   padding: 8px 0;
@@ -1573,3 +1573,4 @@ section {
   font-size: 13px;
   color: #fff;
 }
+
