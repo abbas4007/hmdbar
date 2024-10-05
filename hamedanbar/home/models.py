@@ -151,3 +151,9 @@ class  ComisionVarzeshi(models.Model):
 
     def __str__(self):
         return self.aaza.name
+
+class Comment(models.Model):
+    name= models.CharField(max_length = 150,blank = True,null = True)
+    lastname = models.CharField(max_length = 150,blank = True,null = True)
+    mobile =models.CharField(max_length = 11,blank = True,null = True)
+    message = models.TextField(blank = True,null = True)

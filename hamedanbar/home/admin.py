@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import reverse
 
 from . import models
-from .models import Article, Category, IPAddress,Vakil,Riyasat,Comision,ComisionVarzeshi,ArticleImage
+from .models import Comment,Article, Category, IPAddress,Vakil,Riyasat,Comision,ComisionVarzeshi,ArticleImage
 from import_export.admin import ImportExportModelAdmin
 import pandas as pd
 from django.http import JsonResponse
@@ -139,5 +139,6 @@ admin.site.register(Vakil, VakilAdmin)
 admin.site.register(IPAddress)
 admin.site.register(Riyasat)
 admin.site.register(Comision)
+admin.site.register(Comment)
 admin.site.register(ComisionVarzeshi)
 

@@ -1,5 +1,5 @@
 from django.views.generic import ListView, DetailView
-from django.contrib import admin
+from django.contrib import admin, messages
 from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404, redirect
 from .forms import VakilSearchForm, AdminContactForm, ArticleSearchForm
@@ -115,7 +115,14 @@ class UpdateImageView(View):
 class Contact(View):
 
 	form_class = AdminContactForm
-	def get(self,request):
-		return render(request,'home/contact.html',{'form':self.form_class})
 
+	def get(self,request):
+		return render(request,'home/contact2.html',{'form':self.form_class})
+
+	def post(self, request, *args, **kwargs) :
+		form = self.form_class(request.POST)
+		if form.is_valid() :
+			form.save()
+			messages.success(request, 'your comment submitted successfully', 'success')
+			return redirect('/')
 
