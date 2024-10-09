@@ -4,6 +4,9 @@ from account.models import User
 from django.utils.html import format_html
 from django.utils import timezone
 from extensions.utils import jalali_converter
+from PIL import Image, ImageDraw, ImageFont
+from django.core.files.base import ContentFile
+from io import BytesIO
 from django.contrib.contenttypes.fields import GenericRelation
 # from comment.models import Comment
 
@@ -53,7 +56,7 @@ class Article(models.Model):
     slug = models.SlugField(max_length=100, unique=True, verbose_name="آدرس مقاله")
     category = models.ManyToManyField(Category, verbose_name="دسته‌بندی", related_name="articles")
     description = models.TextField(verbose_name="محتوا")
-    thumbnail = models.ImageField(upload_to="image", verbose_name="تصویر مقاله")
+    thumbnail = models.ImageField(upload_to="image", verbose_name="تصویر مقاله",blank = True,null = True)
     publish = models.DateTimeField(default=timezone.now, verbose_name="زمان انتشار")
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -86,6 +89,32 @@ class Article(models.Model):
     category_to_str.short_description = "دسته‌بندی"
 
     objects = ArticleManager()
+
+    def create_image_with_title(self,title):
+        # Load default image
+        base = Image.open('image/default_image.jpg')
+        draw = ImageDraw.Draw(base)
+
+        # Define font and size (adjust path to your font file)
+        font = ImageFont.truetype('arial',18)
+
+        # Draw text on the image
+        text_width, text_height = draw.textlength(title, font = font)
+        position = ((base.width - text_width) // 2, (base.height - text_height) // 2)
+
+        draw.text(position, title, fill = "black", font = font)
+
+        # Save to BytesIO
+        img_io = BytesIO()
+        base.save(img_io, format = 'PNG')
+        img_file = ContentFile(img_io.getvalue(), 'article_image.jpg')
+
+        return img_file
+
+    def save(self) :
+        if not self.thumbnail :
+            self.thumbnail.save('article_image.jpg', self.create_image_with_title(self.title), save = False)
+        super().save()
 
 class ArticleImage(models.Model):
     article = models.ForeignKey(Article, default=None, on_delete=models.CASCADE)
