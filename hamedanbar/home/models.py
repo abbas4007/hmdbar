@@ -7,6 +7,10 @@ from extensions.utils import jalali_converter
 from PIL import Image, ImageDraw, ImageFont
 from django.core.files.base import ContentFile
 from io import BytesIO
+import arabic_reshaper
+
+from bidi.algorithm import get_display
+
 from django.contrib.contenttypes.fields import GenericRelation
 # from comment.models import Comment
 
@@ -92,17 +96,23 @@ class Article(models.Model):
 
     def create_image_with_title(self,title):
         # Load default image
+
         base = Image.open('image/default_image.jpg')
         draw = ImageDraw.Draw(base)
 
         # Define font and size (adjust path to your font file)
-        font = ImageFont.truetype('arial',18)
+        font = ImageFont.truetype('arial',32)
 
         # Draw text on the image
-        text_width, text_height = draw.textlength(title, font = font)
-        position = ((base.width - text_width) // 2, (base.height - text_height) // 2)
+        text_width = draw.textlength(title, font = font)
+        position = (220, 220)
 
-        draw.text(position, title, fill = "black", font = font)
+        text_to_be_reshaped = title
+        reshaped_text = arabic_reshaper.reshape(text_to_be_reshaped)  # seperated chars problem
+        bidi_text = get_display(reshaped_text)  # direction problem
+
+        text = bidi_text.encode().decode('utf-8')  # encoding problem (rectangular boxes!)
+        draw.text(position, text, fill = "black", font = font)
 
         # Save to BytesIO
         img_io = BytesIO()
