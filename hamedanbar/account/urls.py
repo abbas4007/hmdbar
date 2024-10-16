@@ -8,7 +8,7 @@ from .views import (
     AddVakil,
     vakileList,
     Riyasatlist,
-# vakil_image_view,
+vakil_image_view,
 )
 
 app_name = 'account'
@@ -21,6 +21,6 @@ urlpatterns = [
     path('article/create', ArticleCreate.as_view(), name="article_create"),
     path('article/update/<int:pk>', ArticleUpdate.as_view(), name="article_update"),
 	path('article/delete/<int:pk>', ArticleDelete.as_view(), name="article_delete"),
-    # path('image_upload', vakil_image_view.as_view(), name = 'image_upload'),
+    path('image_upload', vakil_image_view.as_view(), name = 'image_upload'),
 
 ]

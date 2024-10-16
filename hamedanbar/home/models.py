@@ -8,8 +8,9 @@ from PIL import Image, ImageDraw, ImageFont
 from django.core.files.base import ContentFile
 from io import BytesIO
 import arabic_reshaper
-
+from matplotlib import font_manager
 from bidi.algorithm import get_display
+
 
 from django.contrib.contenttypes.fields import GenericRelation
 # from comment.models import Comment
@@ -96,23 +97,24 @@ class Article(models.Model):
 
     def create_image_with_title(self,title):
         # Load default image
+        file = font_manager.findfont('B Titr')
 
         base = Image.open('image/default_image.jpg')
         draw = ImageDraw.Draw(base)
 
         # Define font and size (adjust path to your font file)
-        font = ImageFont.truetype('arial',32)
+        font = ImageFont.truetype(font = file,size = 36)
 
         # Draw text on the image
         text_width = draw.textlength(title, font = font)
-        position = (220, 220)
+        position = (380, 210)
 
         text_to_be_reshaped = title
         reshaped_text = arabic_reshaper.reshape(text_to_be_reshaped)  # seperated chars problem
         bidi_text = get_display(reshaped_text)  # direction problem
 
         text = bidi_text.encode().decode('utf-8')  # encoding problem (rectangular boxes!)
-        draw.text(position, text, fill = "black", font = font)
+        draw.text(position, text, fill = "black", font = font , anchor="mm",align="center")
 
         # Save to BytesIO
         img_io = BytesIO()

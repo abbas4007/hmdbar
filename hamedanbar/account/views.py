@@ -61,19 +61,15 @@ class Riyasatlist(ListView):
         return Riyasat.objects.all()
 
 
-# class vakil_image_view(View):
-#     def get(self, request):
-#         form = ImageForm()
-#
-#         return render(request, 'account/hotel_image_form.html', {'form' : form})
-#
-#     def post(self, request, *args, **kwargs):
-#         form = ImageForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('account:home')
-#         else:
-#             form = ImageForm()
-#         return render(request, 'account/hotel_image_form.html', {'form': form})
+class vakil_image_view(View):
+    def get(self, request):
+        form = ImageForm()
+        return render(request, 'account/vakil_image_update.html', {'form' : form})
 
+    def post(self, request, *args, **kwargs):
+        form = ImageForm(request.POST, request.FILES)
+        if form.is_valid() :
+            form.save()
+            return redirect('account:vakil_list')
+        return render(request, 'account/vakil_image_update.html', {'form' : form})
 

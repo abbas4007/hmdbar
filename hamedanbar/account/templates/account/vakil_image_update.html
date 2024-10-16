@@ -5,10 +5,10 @@
     <title>Title</title>
 </head>
 <body>
- <form method = "post" enctype="multipart/form-data" action="{% url 'account/image_update' %}">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Upload</button>
+ <form method="POST" enctype="multipart/form-data">
+       {% csrf_token %}
+       {{ form.as_p }}
+       <button type="submit">Update Image</button>
     </form>
 </body>
 </html>
