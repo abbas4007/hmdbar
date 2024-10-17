@@ -67,7 +67,7 @@ class vakil_image_view(View):
         return render(request, 'account/vakil_image_update.html', {'form' : form})
 
     def post(self, request, *args, **kwargs):
-        form = ImageForm(request.POST, request.FILES)
+        form = ImageForm(request.POST, request.FILES,instance = Vakil)
         if form.is_valid() :
             form.save()
             return redirect('account:vakil_list')
