@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect
+from django.contrib import messages
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
 from django.views import View
 
@@ -60,16 +61,32 @@ class Riyasatlist(ListView):
     def get_queryset(self):
         return Riyasat.objects.all()
 
+class VakilUpdate(UpdateView):
+    model = Vakil
+    fields = '__all__'
+    template_name = "account/vakil-create-update.html"
+    success_url = reverse_lazy('account:home')
 
 class vakil_image_view(View):
-    def get(self, request):
-        form = ImageForm()
+    form_class = ImageForm
+
+    def setup(self, request, *args, **kwargs) :
+        self.post_instance = get_object_or_404(Vakil, pk = kwargs['id'])
+        return super().setup(request, *args, **kwargs)
+
+    def dispatch(self, request, *args, **kwargs) :
+        return super().dispatch(request, *args, **kwargs)
+
+    def get(self, request, *args, **kwargs):
+        vakil = self.post_instance
+        form = self.form_class(instance = vakil )
         return render(request, 'account/vakil_image_update.html', {'form' : form})
 
     def post(self, request, *args, **kwargs):
-        form = ImageForm(request.POST, request.FILES,instance = Vakil)
+        vakil = self.post_instance
+        form = ImageForm(request.POST, request.FILES,instance = vakil)
         if form.is_valid() :
             form.save()
             return redirect('account:vakil_list')
-        return render(request, 'account/vakil_image_update.html', {'form' : form})
+
 
