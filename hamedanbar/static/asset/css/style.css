@@ -431,6 +431,10 @@ a:hover {
   background-size: cover;
   position: relative;
 }
+ #razan{
+        background-color: #4ac1f7;
+
+    }
 
 #hero {
   background-image: url("static/asset/img/hero-bg.jpg") top center;
