@@ -9,7 +9,7 @@ from django.views.generic import (
     UpdateView,
     DeleteView
 )
-from home.models import Article,Vakil,Riyasat
+from home.models import Article,Vakil,Riyasat,Comision
 
 from .forms import ImageForm
 
@@ -22,7 +22,22 @@ class ArticleList(ListView):
 
     # def get_queryset(self):
     #     return Article.objects.all()
+class ComisionList(ListView):
+    model = Comision
+    paginate_by = 10
+    template_name = "account/comision.html"
 
+class AddComision(CreateView):
+    model = Comision
+    fields = '__all__'
+    template_name = "account/comision-create-update.html"
+    success_url = reverse_lazy('account:home')
+
+class AazaComision(CreateView):
+    model = Comision
+    fields = '__all__'
+    template_name = "account/aaza_comision.html"
+    success_url = reverse_lazy('account:home') 
 
 class ArticleCreate(CreateView):
     model = Article
