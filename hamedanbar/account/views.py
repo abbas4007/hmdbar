@@ -22,11 +22,11 @@ class ArticleList(ListView):
 
     # def get_queryset(self):
     #     return Article.objects.all()
-class ComisionList(ListView):
-    model = Comision
-    paginate_by = 10
-    template_name = "account/comision.html"
-
+class ComisionList(View):
+    def get(self,request,id):
+        comision = Comision.objects.all()
+        return render(request,'account/comisionlist.html',{'comision':comision})
+        
 class AddComision(CreateView):
     model = Comision
     fields = '__all__'
