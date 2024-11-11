@@ -92,13 +92,14 @@ class VakilCity(View):
 class ComisionView(View):
 	def get(self,request):
 		comi = Comision.objects.all()
-		return render(request,'home/comision.html',{'comi':comi})
+		return render(request,'account/comision.html',{'comi':comi})
 
 
 class ComisionDetailView(View):
-	def get(self,request):
-		com = ComisionVarzeshi.objects.all()
-		return render(request,'home/comisiondetail.html',{'com':com})
+	def get(self,request,id):
+		comi = Comision.objects.get(id=id)
+
+		return render(request,'account/comision-create-update.html',{'comi':comi})
 
 class UpdateImageView(View):
 	def post(self,request):

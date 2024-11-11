@@ -9,7 +9,7 @@ from django.views.generic import (
     UpdateView,
     DeleteView
 )
-from home.models import Article,Vakil,Riyasat
+from home.models import Article,Vakil,Riyasat,Comision
 
 from .forms import ImageForm
 
@@ -20,9 +20,28 @@ class ArticleList(ListView):
     paginate_by = 6
     template_name = "account/home.html"
 
-    # def get_queryset(self):
-    #     return Article.objects.all()
 
+class ComisionView(View):
+    def get(self, request, *args, **kwargs):
+        comisions = Comision.objects.all()
+        return render(request, "account/comision.html", {"comisions": comisions})
+
+class ComisionDetailView(View):
+	def get(self,request,id):
+		comi = Comision.objects.get(id=id)
+		return render(request,'account/comision-create-update.html',{'comi':comi})
+
+class AddComision(CreateView):
+    model = Comision
+    fields = '__all__'
+    template_name = "account/comision-create-update.html"
+    success_url = reverse_lazy('account:home')
+
+# class AazaComision(CreateView):
+#     model = Comision
+#     fields = '__all__'
+#     template_name = "account/aaza_comision.html"
+#     success_url = reverse_lazy('account:home')
 
 class ArticleCreate(CreateView):
     model = Article
@@ -50,10 +69,13 @@ class AddVakil(CreateView):
 
 
 class vakileList(ListView):
+    model = Vakil
     template_name = "account/vakil_list.html"
 
-    def get_queryset(self):
-        return Vakil.objects.all()
+class ComisionDetailView(View):
+    def get(self,request,id):
+        comision = Comision.objects.get(id=id)
+        return render(request,'account/comisiondetail.html',{'comision':comision})
 
 class Riyasatlist(ListView):
     template_name = "account/riyasat_list.html"
@@ -88,5 +110,4 @@ class vakil_image_view(View):
         if form.is_valid() :
             form.save()
             return redirect('account:vakil_list')
-
 
