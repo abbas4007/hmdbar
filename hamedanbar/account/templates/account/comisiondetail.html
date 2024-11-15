@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>لیست کمیسیون‌ها</title>
+</head>
+<body>
+   
+    <ul>
+            
+                <ul>
+                    {% for vakil in comisions.vakils.all %}
+                        <li>{{ vakil.name }}</li>
+                    {% endfor %}
+                </ul>
+    </ul>
+</body>
+</html>

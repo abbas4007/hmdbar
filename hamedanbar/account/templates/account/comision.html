@@ -7,7 +7,6 @@
 {% block main %}
 		<div class="row">
           <div class="col-12">
-            {% if object_list %}
               <div class="card">
                 <!-- /.card-header -->
                 <div class="card-body table-responsive p-0">
@@ -19,14 +18,14 @@
                       </tr>
                     </thead>
                     <tbody>
-                      {% for a in object_list %}
+                      {% for a in comisions %}
 
                         <tr>
 
                           <td class="text-center" >
                             <div style="align-items: center;">
 
-                                                                                <a href="{% url 'account:comision_add'  %}">
+                                                                                <a href="{% url 'account:comision_detail' a.id %}">
                                                                                   <p >{{a.name}}</p></a>
                            
             
@@ -60,9 +59,7 @@
                 <!-- /.card-body -->
               </div>
               <!-- /.card -->
-              {% else %}
-              <h3>محتوایی برای نمایش وجود ندارد.</h3>
-              {% endif %}
+             
           </div>
         </div>
 {% endblock %}
