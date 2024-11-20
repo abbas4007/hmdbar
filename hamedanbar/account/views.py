@@ -27,9 +27,9 @@ class ComisionView(View):
         return render(request, "account/comision.html", {"comisions": comisions})
 
 class ComisionDetailView(View):
-	def get(self,request,id):
-		comi = Comision.objects.get(id=id)
-		return render(request,'account/comision-create-update.html',{'comi':comi})
+    def get(self,request,id):
+        comi = Comision.objects.get(id=id)
+        return render(request,'account/comisiondetail.html',{'comi':comi})
 
 class AddComision(CreateView):
     model = Comision
@@ -72,10 +72,10 @@ class vakileList(ListView):
     model = Vakil
     template_name = "account/vakil_list.html"
 
-class ComisionDetailView(View):
+class ComisionDetail(View):
     def get(self,request,id):
-        comision = Comision.objects.get(id=id)
-        return render(request,'account/comisiondetail.html',{'comision':comision})
+        comisions = Comision.objects.get(id=id)
+        return render(request, 'account/comisiondetail.html', {'comisions': comisions})
 
 class Riyasatlist(ListView):
     template_name = "account/riyasat_list.html"

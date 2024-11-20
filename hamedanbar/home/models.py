@@ -180,7 +180,7 @@ class Riyasat(models.Model):
 
 class Comision(models.Model):
     name = models.CharField(max_length = 150,unique = True)
-    aaza = models.ForeignKey(Vakil,on_delete = models.ManyToManyField,blank = True,null = True)
+    vakils = models.ManyToManyField(Vakil,blank = True,null = True,related_name='comisions')
     raees = models.BooleanField(default = False)
 
     def __str__(self):

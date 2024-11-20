@@ -1,6 +1,5 @@
 {% extends 'account/base.html' %}
 {% load crispy_forms_tags %}
-    {% crispy form %}
 
 
 {% block title %}{% block title-meta %}
@@ -17,29 +16,29 @@
 			<form method="post" enctype="multipart/form-data">{% csrf_token %}
 				<div class="row">
 					<div class="col-6">
-						{{ form.name|as_crispy_field|safe }}
+						{{ form.name|safe }}
 					</div>
 					<div class="col-6">
-						{{ form.aaza|as_crispy_field|safe }}
+						{{ form.aaza|safe }}
 					</div>
 					<div class="col-12">
-						{{ form.raees|as_crispy_field|safe }}
+						{{ form.raees|safe }}
 					</div>
 					<div class="col-6">
-						{{ form.category|as_crispy_field|safe }}
+						{{ form.category|safe }}
 					</div>
 					<div class="col-6">
-						{{ form.thumbnail|as_crispy_field|safe }}
+						{{ form.thumbnail|safe }}
 					</div>
 					<div class="col-6">
-						{{ form.publish|as_crispy_field|safe }}
+						{{ form.publish|safe }}
 					</div>
 					{% if user.is_superuser %}
 						<div class="col-6">
-							{{ form.author|as_crispy_field|safe }}
+							{{ form.author|safe }}
 						</div>
 						<div class="col-6">
-							{{ form.status|as_crispy_field|safe }}
+							{{ form.status|safe }}
 						</div>
 					{% else %}
 					<div class="col-6">
@@ -61,7 +60,7 @@
 					</div>
 				{% endif %}
 				<div class="col-6">
-					{{ form.is_special|as_crispy_field }}
+					{{ form.is_special }}
 				</div>
 				</div>
 				<button class="btn btn-success">ارسال مقاله</button>
