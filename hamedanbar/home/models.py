@@ -178,20 +178,23 @@ class Riyasat(models.Model):
         return str(self.vakil)
 
 
+class  ComisionVarzeshi(models.Model):
+    aaza = models.ForeignKey(Vakil,on_delete = models.CASCADE,blank = True,null = True)
+    raees = models.BooleanField(default = False)
+
+    def __str__(self):
+        return self.aaza.name
+
+
 class Comision(models.Model):
     name = models.CharField(max_length = 150,unique = True)
-    vakils = models.ManyToManyField(Vakil,blank = True,null = True,related_name='comisions')
+    vakils = models.ManyToManyField(Vakil,blank = True,null = True,related_name='comisions')    
     raees = models.BooleanField(default = False)
 
     def __str__(self):
         return self.name
 
-class  ComisionVarzeshi(models.Model):
-    aaza = models.ForeignKey(Vakil,on_delete = models.CASCADE,blank = True,null = True,related_name = 'aazas')
-    raees = models.BooleanField(default = False)
 
-    def __str__(self):
-        return self.aaza.name
 
 class Comment(models.Model):
     name= models.CharField(max_length = 150,blank = True,null = True)

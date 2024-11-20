@@ -10,10 +10,10 @@ from .views import (
     Riyasatlist,
 vakil_image_view,
 VakilUpdate,
-ComisionView,
+ComisionList,
 AddComision,
-# AazaComision,
-ComisionDetailView
+AazaComision,
+ComisionDetail,
 )
 
 app_name = 'account'
@@ -21,11 +21,10 @@ app_name = 'account'
 urlpatterns = [
 	path('', ArticleList.as_view(), name="home"),
 	path('vakillist', vakileList.as_view(), name="vakil_list"),
-	path('comisionlist', ComisionView.as_view(), name="comision_list"),
-	# path('azacomisionlist', AazaComision.as_view(), name="aza_list"),
-    path('comision/<int:id>', ComisionDetailView.as_view(), name = "comision_detail"),
-
+	path('comisionlist', ComisionList.as_view(), name="comision_list"),
+	path('azacomisionlist', AazaComision.as_view(), name="aza_list"),
     path('vakil/update/<int:id>', VakilUpdate.as_view(), name="vakil_update"),
+    path('comisiondetail/<int:id>', ComisionDetail.as_view(), name="comision_detail"),
 	path('riyasatlist', Riyasatlist.as_view(), name="riyasat_list"),
 	path('addvakil', AddVakil.as_view(), name="vakil_add"),
 	path('addcomision', AddComision.as_view(), name="comision_add"),

@@ -1,7 +1,7 @@
 {% extends 'account/base.html' %}
 
 {% block title %}{% block title-meta %}
-	لیست کمیسیون
+	لیست وکلا
 {% endblock %}{% endblock %}
 
 {% block main %}
@@ -23,7 +23,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                      {% for a in comi.aaza %}
+                      {% for a in object_list %}
 
                         <tr>
 
@@ -31,11 +31,11 @@
                                                                                 <a href="{% url 'account:vakil_add'  %}">
                                                                                   <p >{{a.name}}</p></a>
                            
-                          </td></tr>
+                          </td></a>
                                                     <td>{{a.lastname}}</td>
                                                     <td>{{a.gender}}</td>
-                          <td>{{a.jpublish.aaza}}</td>
-                          <td>{{a.address.aaza}}</td>
+                          <td>{{a.jpublish}}</td>
+                          <td>{{a.address}}</td>
 
                           <td>
                               <img src="{{a.thumbnail.url}}" width="120">
@@ -62,7 +62,6 @@
                           
                         </tr>
 
-
                       {% endfor %}
                     </tbody>
                   </table>
@@ -70,8 +69,7 @@
                 <!-- /.card-body -->
               </div>
               <!-- /.card -->
-
-
+            
           </div>
         </div>
 {% endblock %}

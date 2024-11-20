@@ -9,7 +9,7 @@ from django.views.generic import (
     UpdateView,
     DeleteView
 )
-from home.models import Article,Vakil,Riyasat,Comision
+from home.models import Article,Vakil,Riyasat,Comision,ComisionVarzeshi
 
 from .forms import ImageForm
 
@@ -20,28 +20,27 @@ class ArticleList(ListView):
     paginate_by = 6
     template_name = "account/home.html"
 
-
-class ComisionView(View):
-    def get(self, request, *args, **kwargs):
+  
+class ComisionList(View):
+    def get(self,request):
         comisions = Comision.objects.all()
-        return render(request, "account/comision.html", {"comisions": comisions})
-
-class ComisionDetailView(View):
+        return render(request,'account/comision.html',{'comisions':comisions})
+        
+class ComisionDetail(View):
     def get(self,request,id):
-        comi = Comision.objects.get(id=id)
-        return render(request,'account/comisiondetail.html',{'comi':comi})
-
+        comisions = Comision.objects.get(id=id)
+        return render(request, 'account/comisiondetail.html', {'comisions': comisions})
 class AddComision(CreateView):
     model = Comision
     fields = '__all__'
     template_name = "account/comision-create-update.html"
     success_url = reverse_lazy('account:home')
 
-# class AazaComision(CreateView):
-#     model = Comision
-#     fields = '__all__'
-#     template_name = "account/aaza_comision.html"
-#     success_url = reverse_lazy('account:home')
+class AazaComision(CreateView):
+    model = Comision
+    fields = '__all__'
+    template_name = "account/aaza_comision.html"
+    success_url = reverse_lazy('account:home') 
 
 class ArticleCreate(CreateView):
     model = Article
@@ -69,13 +68,10 @@ class AddVakil(CreateView):
 
 
 class vakileList(ListView):
-    model = Vakil
     template_name = "account/vakil_list.html"
 
-class ComisionDetail(View):
-    def get(self,request,id):
-        comisions = Comision.objects.get(id=id)
-        return render(request, 'account/comisiondetail.html', {'comisions': comisions})
+    def get_queryset(self):
+        return Vakil.objects.all()
 
 class Riyasatlist(ListView):
     template_name = "account/riyasat_list.html"
@@ -110,4 +106,5 @@ class vakil_image_view(View):
         if form.is_valid() :
             form.save()
             return redirect('account:vakil_list')
+
 
