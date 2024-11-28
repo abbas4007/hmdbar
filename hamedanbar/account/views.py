@@ -22,8 +22,10 @@ class ArticleList(ListView):
 
   
 class ComisionList(View):
+
+
     def get(self,request):
-        comisions = Comision.objects.all()
+        comisions = Comision.objects.all().order_by('-raees')
         return render(request,'account/comision.html',{'comisions':comisions})
         
 class ComisionDetail(View):

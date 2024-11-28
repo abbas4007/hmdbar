@@ -49,6 +49,32 @@ class Category(models.Model):
     objects = CategoryManager()
 
 
+def text_wrap(text, font, max_width) :
+    lines = []
+    # If the width of the text is smaller than image width
+    # we don't need to split it, just add it to the lines array
+    # and return
+    if font.getsize(text)[0] <= max_width :
+        lines.append(text)
+    else :
+        # split the line by spaces to get words
+        words = text.split(' ')
+        i = 0
+        # append every word to a line while its width is shorter than image width
+        while i < len(words) :
+            line = ''
+            while i < len(words) and font.getsize(line + words[i])[0] <= max_width :
+                line = line + words[i] + " "
+                i += 1
+            if not line :
+                line = words[i]
+                i += 1
+            # when the line gets longer than the max width do not append the word,
+            # add the line to the lines array
+            lines.append(line)
+    return lines
+
+
 class Article(models.Model):
     STATUS_CHOICES = (
         ('d', 'پیش‌نویس'),		 # draft
@@ -95,30 +121,73 @@ class Article(models.Model):
 
     objects = ArticleManager()
 
-    def create_image_with_title(self,title):
-        # Load default image
-        file = font_manager.findfont('B Titr')
 
+
+    # def create_image_with_title(self,title):
+    #     # Load default image
+    #    # file = font_manager.findfont('B Titr')
+    #     file = 'C:\\Users\\hmdbar\\PycharmProjects\\hamedanbar\\hamedanbar\\static\\font\\BTitr.ttf'
+    #
+    #     base = Image.open('image/default_image.jpg')
+    #     draw = ImageDraw.Draw(base)
+    #
+    #     # Define font and size (adjust path to your font file)
+    #     font = ImageFont.truetype(font = file,size = 36)
+    #
+    #     # Draw text on the image
+    #     text_width = draw.textlength(title, font = font)
+    #     position = (320, 200)
+    #
+    #     text_to_be_reshaped = title
+    #     reshaped_text = arabic_reshaper.reshape(text_to_be_reshaped)  # seperated chars problem
+    #     bidi_text = get_display(reshaped_text)  # direction problem
+    #
+    #     text = bidi_text.encode().decode('utf-8')  # encoding problem (rectangular boxes!)
+    #     draw.text(position, text, fill = "black", font = font , anchor="mm",align="center",direction='rtl')
+    #
+    #     # Save to BytesIO
+    #     img_io = BytesIO()
+    #     base.save(img_io, format = 'PNG')
+    #     image_size = img_io.size()
+    #
+    #     img_file = ContentFile(img_io.getvalue(), 'article_image.jpg')
+    #
+    #     return img_file
+    def create_image_with_title(self, title) :
+        file = 'C:\\Users\\hmdbar\\PycharmProjects\\hamedanbar\\hamedanbar\\static\\font\\BTitr.ttf'
         base = Image.open('image/default_image.jpg')
         draw = ImageDraw.Draw(base)
+        font = ImageFont.truetype(font = file, size = 36)
+        def wrap_text(text, font, max_width) :
+            lines = []
+            words = text.split()
+            current_line = ""
 
-        # Define font and size (adjust path to your font file)
-        font = ImageFont.truetype(font = file,size = 36)
+            for word in words :
+                test_line = f"{current_line} {word}".strip()
+                if draw.textlength(test_line, font = font) <= max_width :
+                    current_line = test_line
+                else :
+                    lines.append(current_line)
+                    current_line = word
 
-        # Draw text on the image
-        text_width = draw.textlength(title, font = font)
-        position = (380, 210)
+            if current_line :
+                lines.append(current_line)
 
-        text_to_be_reshaped = title
-        reshaped_text = arabic_reshaper.reshape(text_to_be_reshaped)  # seperated chars problem
-        bidi_text = get_display(reshaped_text)  # direction problem
+            return lines
+        max_width = 600
+        wrapped_text_lines = wrap_text(title, font, max_width)
 
-        text = bidi_text.encode().decode('utf-8')  # encoding problem (rectangular boxes!)
-        draw.text(position, text, fill = "black", font = font , anchor="mm",align="center")
+        y_position = 200
+        for line in wrapped_text_lines :
+            reshaped_text = arabic_reshaper.reshape(line)
+            bidi_text = get_display(reshaped_text)
+            draw.text((380, y_position), bidi_text, fill = "black", font = font, anchor = "mm", align = "center")
+            y_position += font.getbbox(line)[1] + 45
 
-        # Save to BytesIO
         img_io = BytesIO()
         base.save(img_io, format = 'PNG')
+
         img_file = ContentFile(img_io.getvalue(), 'article_image.jpg')
 
         return img_file
@@ -126,7 +195,12 @@ class Article(models.Model):
     def save(self) :
         if not self.thumbnail :
             self.thumbnail.save('article_image.jpg', self.create_image_with_title(self.title), save = False)
-        super().save()
+            super().save()
+
+    def save(self) :
+        if not self.thumbnail :
+            self.thumbnail.save('article_image.jpg', self.create_image_with_title(self.title), save = False)
+            super().save()
 
 class ArticleImage(models.Model):
     article = models.ForeignKey(Article, default=None, on_delete=models.CASCADE)
