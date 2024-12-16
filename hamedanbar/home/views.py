@@ -22,7 +22,7 @@ class ArticleList(View):
 		page_number = request.GET.get("page")
 		page_obj = paginator.get_page(page_number)
 
-		return render(request,'home/index.html',{'article':article,'heyatmodireh':heyatmodireh,"page_obj": page_obj,'form':self.form_class})
+		return render(request,'home/home.html',{'article':article,'heyatmodireh':heyatmodireh,"page_obj": page_obj,'form':self.form_class})
 
 
 class ArticleDetail(View):
